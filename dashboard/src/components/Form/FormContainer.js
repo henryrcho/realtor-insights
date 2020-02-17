@@ -1,4 +1,5 @@
 import React, {Component} from 'react';  
+import { Link } from 'react-router-dom';
 
 
 /* Import Components */
@@ -95,16 +96,18 @@ class FormContainer extends Component {
     let userData = this.state.newUser;
 
     fetch('http://example.com',{
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      }).then(response => {
-        response.json().then(data =>{
-          console.log("Successful" + data);
-        })
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(response => {
+      response.json().then(data =>{
+        console.log("Successful" + data);
+        // might need to fix this; have to see what response returns
+        // return <Link to={"/results?data=data"} /> 
+      })
     })
   }   
 
@@ -154,7 +157,7 @@ class FormContainer extends Component {
                 type = {'primary'} 
                 title = {'Submit'} 
                 style={buttonStyle}
-              /> { /*Submit */ }
+              />{ /*Submit */ }
               
               <Button 
                 action = {this.handleClearForm}

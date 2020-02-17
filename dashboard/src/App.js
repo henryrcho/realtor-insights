@@ -7,6 +7,7 @@ import About from './components/About';
 import ToS from './components/ToS';
 import Legal from './components/Legal'
 import FormContainer from './components/Form/FormContainer';
+import TableContainer from './components/Table/TableContainer';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/tos' component={ToS} />
           <Route path='/legal' component={Legal} />
           <Route path='/search' component={FormContainer} />
+          <Route path='/results' component={TableContainer} />
         </Switch>
       </Router>
     </div>

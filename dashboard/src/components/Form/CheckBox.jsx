@@ -21,9 +21,7 @@ const CheckBox = (props) => {
         );
       })}
     </div>
-  </div>
-);
-
+  </div>);
 }
 
 export default CheckBox;
