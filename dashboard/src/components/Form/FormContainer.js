@@ -1,5 +1,4 @@
 import React, {Component} from 'react';  
-import { Link } from 'react-router-dom';
 
 
 /* Import Components */
@@ -107,6 +106,7 @@ class FormContainer extends Component {
         console.log("Successful" + data);
         // might need to fix this; have to see what response returns
         // return <Link to={"/results?data=data"} /> 
+        // here make 3 calls, one to each vm server, for knn model send userdata
       })
     })
   }   
