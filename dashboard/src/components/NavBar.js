@@ -13,7 +13,7 @@ class NavBar extends Component {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
+            <div className="collapse navbar-collapse" id="navbarToggler">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item"><Link to={'/'} className="nav-link">Home</Link></li>
                 <li className="nav-item"><Link to={'/about'} className="nav-link">About</Link></li>

@@ -1,12 +1,10 @@
-import React, {Component} from 'react';  
-
-
-/* Import Components */
+import React, {Component} from 'react';
 import CheckBox from './CheckBox';  
 import Input from './Input';  
 import TextArea from './TextArea';  
 import Select from './Select';
 import Button from './Button'
+
 
 class FormContainer extends Component {  
   constructor(props) {
@@ -23,7 +21,9 @@ class FormContainer extends Component {
       },
 
       genderOptions: ['Male', 'Female', 'Other'],
-      skillOptions: ['Programming', 'Development', 'Design', 'Testing']
+      skillOptions: ['Programming', 'Development', 'Design', 'Testing'],
+
+      // testApiResponse: '',
 
     }
     this.handleTextArea = this.handleTextArea.bind(this);
@@ -88,27 +88,33 @@ class FormContainer extends Component {
         {...prevState.newUser, skills: newSelectionArray }
       })
       )
-}
+  }
 
   handleFormSubmit(e) {
     e.preventDefault();
-    let userData = this.state.newUser;
+    // let userData = this.state.newUser;
 
-    fetch('http://example.com',{
-      method: "POST",
-      body: JSON.stringify(userData),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    }).then(response => {
-      response.json().then(data =>{
-        console.log("Successful" + data);
-        // might need to fix this; have to see what response returns
-        // return <Link to={"/results?data=data"} /> 
-        // here make 3 calls, one to each vm server, for knn model send userdata
-      })
-    })
+    // Exmaple API call and handle response
+    // fetch('http://localhost:9000/testAPI')
+    //   .then(res => res.text())
+    //   .then(res => this.setState({testApiResponse: res}));
+
+    // fetch('http://localhost:9000/testAPI',{
+    //   method: "POST",
+    //   body: JSON.stringify(userData),
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    // }).then(response => {
+    //   response.json().then(data =>{
+    //     console.log("Successful" + data);
+    //     // might need to fix this; have to see what response returns
+    //     // return <Link to={"/results?data=data"} /> 
+    //     // here make 3 calls, one to each vm server, for knn model send userdata
+    //     // https://www.basefactor.com/react-how-to-display-a-loading-indicator-on-fetch-calls
+    //   })
+    // })
   }   
 
   handleClearForm(e) {
@@ -124,12 +130,29 @@ class FormContainer extends Component {
     })
   }
 
+  // **************************************
+  // testAPI stuff
+
+  callAPI() {
+    fetch("http://localhost:9000/testAPI")
+        .then(res => res.text())
+        .then(res => this.setState({ testApiResponse: res }));
+  }
+
+  componentWillMount() {
+    this.callAPI();
+  }
+  // **************************************
+
+
   render() {
     return (
       <div className="container">
         <div className="row justify-content-center">
             <div className="col pt-5">
                 <h2>Tell us a bit about yourself...</h2>
+                {/* for test API */}
+                {/* <p className="App-intro">;{this.state.testApiResponse}</p> */}
             </div>
         </div>
         <div className="row">
