@@ -7,8 +7,9 @@ Created on Fri Mar  6 00:21:46 2020
 #from numpy import random
 from random import choices
 import pandas as pd
-df_popn = pd.read_excel (r'D:\nyc_popn.xlsx')
-df_race = pd.read_excel (r'D:\nyc_race.xlsx')
+#path = "r'D:\GitHub\realtor-insights\Personal_Fit_Model"
+df_popn = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_popn.xlsx')
+df_race = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_race.xlsx')
 #age = [2,7,12,17,22,30,40,50,57,62,70,80,88]
 age = list(df_popn)[2:]
 pop_arr = df_popn.values.tolist()
