@@ -8,6 +8,8 @@ Created on Fri Mar  6 00:21:46 2020
 from random import choices
 import pandas as pd
 #path = "r'D:\GitHub\realtor-insights\Personal_Fit_Model"
+#Note: removed QN98 Airport, SI99 park-cemetery-etc-Staten Island, BX98 Rikers Island1
+#Note: changed MN01 Marble Hill2-Inwood to remove number
 df_popn = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_popn.xlsx')
 df_race = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_race.xlsx')
 #age = [2,7,12,17,22,30,40,50,57,62,70,80,88]
