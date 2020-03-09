@@ -3,7 +3,8 @@ import CheckBox from './CheckBox';
 import Input from './Input';  
 import TextArea from './TextArea';  
 import Select from './Select';
-import Button from './Button'
+import Button from './Button';
+import { Redirect } from "react-router-dom";
 
 
 class FormContainer extends Component {  
@@ -11,7 +12,7 @@ class FormContainer extends Component {
     super(props);
 
     this.state = {
-      newUser: {
+      userData: {
         name: '',
         age: '',
         race: '',
@@ -26,6 +27,8 @@ class FormContainer extends Component {
       raceOptions: ['Hispanic or Latino', 'White', 'Black or African American', 'Asian', 'Other'], 
       genderOptions: ['Male', 'Female', 'Other'],
       skillOptions: ['Programming', 'Development', 'Design', 'Testing'],
+
+      redirect: null,
 
       testApiResponse: '',
 
@@ -43,37 +46,37 @@ class FormContainer extends Component {
   
   handleFullName(e) {
    let value = e.target.value;
-   this.setState( prevState => ({ newUser : 
-        {...prevState.newUser, name: value
+   this.setState( prevState => ({ userData : 
+        {...prevState.userData, name: value
         }
-      }), () => console.log(this.state.newUser))
+      }), () => console.log(this.state.userData))
   }
 
   handleAge(e) {
        let value = e.target.value;
-   this.setState( prevState => ({ newUser : 
-        {...prevState.newUser, age: value
+   this.setState( prevState => ({ userData : 
+        {...prevState.userData, age: value
         }
-      }), () => console.log(this.state.newUser))
+      }), () => console.log(this.state.userData))
   }
 
   handleInput(e) {
        let value = e.target.value;
        let name = e.target.name;
-   this.setState( prevState => ({ newUser : 
-        {...prevState.newUser, [name]: value
+   this.setState( prevState => ({ userData : 
+        {...prevState.userData, [name]: value
         }
-      }), () => console.log(this.state.newUser))
+      }), () => console.log(this.state.userData))
   }
 
   handleTextArea(e) {
     console.log("Inside handleTextArea");
     let value = e.target.value;
     this.setState(prevState => ({
-      newUser: {
-        ...prevState.newUser, about: value
+      userData: {
+        ...prevState.userData, about: value
       }
-      }), ()=>console.log(this.state.newUser))
+      }), ()=>console.log(this.state.userData))
   }
 
 
@@ -82,21 +85,21 @@ class FormContainer extends Component {
     const newSelection = e.target.value;
     let newSelectionArray;
 
-    if(this.state.newUser.skills.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.newUser.skills.filter(s => s !== newSelection)
+    if(this.state.userData.skills.indexOf(newSelection) > -1) {
+      newSelectionArray = this.state.userData.skills.filter(s => s !== newSelection)
     } else {
-      newSelectionArray = [...this.state.newUser.skills, newSelection];
+      newSelectionArray = [...this.state.userData.skills, newSelection];
     }
 
-      this.setState( prevState => ({ newUser:
-        {...prevState.newUser, skills: newSelectionArray }
+      this.setState( prevState => ({ userData:
+        {...prevState.userData, skills: newSelectionArray }
       })
       )
   }
 
   handleFormSubmit(e) {
     e.preventDefault();
-    // let userData = this.state.newUser;
+    // let userData = this.state.userData;
 
     // Exmaple API call and handle response
     // fetch('http://localhost:9000/testAPI')
@@ -119,12 +122,13 @@ class FormContainer extends Component {
     //     // https://www.basefactor.com/react-how-to-display-a-loading-indicator-on-fetch-calls
     //   })
     // })
+    this.setState({ redirect: "/results" });
   }   
 
   handleClearForm(e) {
     e.preventDefault();
     this.setState({ 
-      newUser: {
+      userData: {
         name: '',
         age: '',
         gender: '',
@@ -150,6 +154,12 @@ class FormContainer extends Component {
 
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={{
+        pathname: this.state.redirect, 
+        userData: this.state.userData
+      }}/>
+    }
     return (
       <div className="container">
         <div className="row justify-content-center">
@@ -168,7 +178,7 @@ class FormContainer extends Component {
                   <Select title={'Age'}
                     name={'age'}
                     options = {this.state.ageOptions} 
-                    value = {this.state.newUser.age}
+                    value = {this.state.userData.age}
                     placeholder = {'Select Age'}
                     handleChange = {this.handleInput}
                   /> {/* Age Selection */}
@@ -177,7 +187,7 @@ class FormContainer extends Component {
                   <Select title={'Ethnicity'}
                     name={'race'}
                     options = {this.state.raceOptions} 
-                    value = {this.state.newUser.race}
+                    value = {this.state.userData.race}
                     placeholder = {'Select Ethnicity'}
                     handleChange = {this.handleInput}
                   /> {/* Ethnicity Selection */}
@@ -209,26 +219,26 @@ class FormContainer extends Component {
         <Input inputType={'text'}
           title= {'Full Name'} 
           name= {'name'}
-          value={this.state.newUser.name} 
+          value={this.state.userData.name} 
           placeholder = {'Enter your name'}
           handleChange = {this.handleInput}
         /> {/* Name of the user */}
         <Select title={'Gender'}
           name={'gender'}
           options = {this.state.genderOptions} 
-          value = {this.state.newUser.gender}
+          value = {this.state.userData.gender}
           placeholder = {'Select Gender'}
           handleChange = {this.handleInput}
         /> {/* Age Selection */}
         <CheckBox title={'Skills'}
           name={'skills'}
           options={this.state.skillOptions}
-          selectedOptions = { this.state.newUser.skills}
+          selectedOptions = { this.state.userData.skills}
           handleChange={this.handleCheckBox}
         /> {/* Skill */}
         <TextArea title={'About you.'}
           rows={3}
-          value={this.state.newUser.about}
+          value={this.state.userData.about}
           name={'currentPetInfo'}
           handleChange={this.handleTextArea}
           placeholder={'Describe your past experience and skills'} 
