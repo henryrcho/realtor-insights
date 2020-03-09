@@ -29,6 +29,8 @@ class FormContainer extends Component {
       skillOptions: ['Programming', 'Development', 'Design', 'Testing'],
 
       redirect: null,
+      // this will be set by responses from models
+      results: 'got results',
 
       testApiResponse: '',
 
@@ -157,7 +159,7 @@ class FormContainer extends Component {
     if (this.state.redirect) {
       return <Redirect to={{
         pathname: this.state.redirect, 
-        userData: this.state.userData
+        results: this.state.results
       }}/>
     }
     return (
