@@ -14,16 +14,20 @@ class FormContainer extends Component {
       newUser: {
         name: '',
         age: '',
+        race: '',
         gender: '',
         skills: [],
         about: ''
 
       },
 
+      ageOptions: ['0-5', '5-9', '10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
+      // edit these
+      raceOptions: ['Hispanic or Latino', 'White', 'Black or African American', 'Asian', 'Other'], 
       genderOptions: ['Male', 'Female', 'Other'],
       skillOptions: ['Programming', 'Development', 'Design', 'Testing'],
 
-      // testApiResponse: '',
+      testApiResponse: '',
 
     }
     this.handleTextArea = this.handleTextArea.bind(this);
@@ -152,27 +156,36 @@ class FormContainer extends Component {
             <div className="col pt-5">
                 <h2>Tell us a bit about yourself...</h2>
                 {/* for test API */}
-                {/* <p className="App-intro">;{this.state.testApiResponse}</p> */}
+                <p className="App-intro">response:{this.state.testApiResponse}</p>
             </div>
         </div>
         <div className="row">
           <div className="col-md-2"></div>
           <div className="col-md-8">
             <form className="container-fluid" onSubmit={this.handleFormSubmit}>
-              
               <div className="row">
                 <div className="col-md-6">
-                  <Input inputType={'number'} 
+                  <Select title={'Age'}
                     name={'age'}
-                    title= {'Age'} 
-                    value={this.state.newUser.age} 
-                    placeholder = {'Enter your age'}
-                    handleChange={this.handleAge} 
-                  /> {/* Age */}
+                    options = {this.state.ageOptions} 
+                    value = {this.state.newUser.age}
+                    placeholder = {'Select Age'}
+                    handleChange = {this.handleInput}
+                  /> {/* Age Selection */}
                 </div>
                 <div className="col-md-6">
-                  {/* Add another field here */}
+                  <Select title={'Ethnicity'}
+                    name={'race'}
+                    options = {this.state.raceOptions} 
+                    value = {this.state.newUser.race}
+                    placeholder = {'Select Ethnicity'}
+                    handleChange = {this.handleInput}
+                  /> {/* Ethnicity Selection */}
                 </div>
+              </div>
+
+              <div className="row">
+                {/* more fields */}
               </div>
 
               <Button 
