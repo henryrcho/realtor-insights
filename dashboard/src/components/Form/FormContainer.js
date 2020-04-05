@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import CheckBox from './CheckBox';  
-import Input from './Input';  
-import TextArea from './TextArea';  
+// import CheckBox from './CheckBox';  
+// import Input from './Input';  
+// import TextArea from './TextArea';  
 import Select from './Select';
 import Button from './Button';
 import { Redirect } from "react-router-dom";
@@ -12,6 +12,7 @@ class FormContainer extends Component {
     super(props);
 
     this.state = {
+      // TODO: edit this
       userData: {
         name: '',
         age: '',
@@ -19,21 +20,15 @@ class FormContainer extends Component {
         gender: '',
         skills: [],
         about: ''
-
       },
 
+      // TODO: edit this
       ageOptions: ['0-5', '5-9', '10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
-      // edit these
       raceOptions: ['Hispanic or Latino', 'White', 'Black or African American', 'Asian', 'Other'], 
       genderOptions: ['Male', 'Female', 'Other'],
       skillOptions: ['Programming', 'Development', 'Design', 'Testing'],
 
       redirect: null,
-      // this will be set by responses from models
-      results: 'got results',
-
-      testApiResponse: '',
-
     }
     this.handleTextArea = this.handleTextArea.bind(this);
     this.handleAge = this.handleAge.bind(this);
@@ -43,8 +38,6 @@ class FormContainer extends Component {
     this.handleCheckBox = this.handleCheckBox.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
-
-  /* This lifecycle hook gets executed when the component mounts */
   
   handleFullName(e) {
    let value = e.target.value;
@@ -78,7 +71,7 @@ class FormContainer extends Component {
       userData: {
         ...prevState.userData, about: value
       }
-      }), ()=>console.log(this.state.userData))
+    }), ()=>console.log(this.state.userData))
   }
 
 
@@ -93,37 +86,13 @@ class FormContainer extends Component {
       newSelectionArray = [...this.state.userData.skills, newSelection];
     }
 
-      this.setState( prevState => ({ userData:
-        {...prevState.userData, skills: newSelectionArray }
-      })
-      )
+    this.setState( prevState => ({ userData:
+      {...prevState.userData, skills: newSelectionArray }
+    }));
   }
 
   handleFormSubmit(e) {
     e.preventDefault();
-    // let userData = this.state.userData;
-
-    // Exmaple API call and handle response
-    // fetch('http://localhost:9000/testAPI')
-    //   .then(res => res.text())
-    //   .then(res => this.setState({testApiResponse: res}));
-
-    // fetch('http://localhost:9000/testAPI',{
-    //   method: "POST",
-    //   body: JSON.stringify(userData),
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    // }).then(response => {
-    //   response.json().then(data =>{
-    //     console.log("Successful" + data);
-    //     // might need to fix this; have to see what response returns
-    //     // return <Link to={"/results?data=data"} /> 
-    //     // here make 3 calls, one to each vm server, for knn model send userdata
-    //     // https://www.basefactor.com/react-how-to-display-a-loading-indicator-on-fetch-calls
-    //   })
-    // })
     this.setState({ redirect: "/results" });
   }   
 
@@ -133,6 +102,7 @@ class FormContainer extends Component {
       userData: {
         name: '',
         age: '',
+        race: '',
         gender: '',
         skills: [],
         about: ''
@@ -140,26 +110,13 @@ class FormContainer extends Component {
     })
   }
 
-  // **************************************
-  // testAPI stuff
-
-  callAPI() {
-    fetch("http://localhost:9000/testAPI")
-        .then(res => res.text())
-        .then(res => this.setState({ testApiResponse: res }));
-  }
-
-  componentWillMount() {
-    this.callAPI();
-  }
-  // **************************************
-
-
   render() {
     if (this.state.redirect) {
       return <Redirect to={{
         pathname: this.state.redirect, 
-        results: this.state.results
+        state: { 
+          userData: this.state.userData,
+        }
       }}/>
     }
     return (
@@ -167,8 +124,6 @@ class FormContainer extends Component {
         <div className="row justify-content-center">
             <div className="col pt-5">
                 <h2>Tell us a bit about yourself...</h2>
-                {/* for test API */}
-                <p className="App-intro">response:{this.state.testApiResponse}</p>
             </div>
         </div>
         <div className="row">
@@ -218,33 +173,33 @@ class FormContainer extends Component {
         </div>
         
        {/* example feilds */}
-        <Input inputType={'text'}
+        {/* <Input inputtype={'text'}
           title= {'Full Name'} 
           name= {'name'}
           value={this.state.userData.name} 
           placeholder = {'Enter your name'}
-          handleChange = {this.handleInput}
-        /> {/* Name of the user */}
-        <Select title={'Gender'}
+          handleChange = {this.handleInput} 
+        />*/} {/* Name of the user */}
+        {/* <Select title={'Gender'}
           name={'gender'}
           options = {this.state.genderOptions} 
           value = {this.state.userData.gender}
           placeholder = {'Select Gender'}
           handleChange = {this.handleInput}
-        /> {/* Age Selection */}
-        <CheckBox title={'Skills'}
+        />*/} {/* Age Selection */}
+        {/* <CheckBox title={'Skills'}
           name={'skills'}
           options={this.state.skillOptions}
           selectedOptions = { this.state.userData.skills}
           handleChange={this.handleCheckBox}
-        /> {/* Skill */}
-        <TextArea title={'About you.'}
+        />*/} {/* Skill */}
+        {/* <TextArea title={'About you.'}
           rows={3}
           value={this.state.userData.about}
           name={'currentPetInfo'}
           handleChange={this.handleTextArea}
           placeholder={'Describe your past experience and skills'} 
-        />{/* About you */}
+        />*/} {/* About you */}
       </div>
     );
   }
