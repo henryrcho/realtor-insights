@@ -21,7 +21,7 @@ router.get('/:file_name', function(req, res, next) {
  * @param {*} filename file to retrieve
  * @param {*} res json object
  */
-function retrieveFile(filename,res){
+function retrieveFile(filename, res){
   // Configuring parameters
   const getParams = {
     Bucket: 'uoft-esc472-capstone',
@@ -35,7 +35,7 @@ function retrieveFile(filename,res){
     }
     // Success
     else {
-      return res.send(data.Body)
+      return res.send(data.Body.toString());
     }
   });
 }

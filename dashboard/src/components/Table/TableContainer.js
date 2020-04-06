@@ -18,32 +18,25 @@ class TableContainer extends Component {
 		let userData = this.state.userData;
 		this.setState({ isLoading: true });
 		const urls = [
-			'http://localhost:9000/testAPI',{
-				method: "POST",
-				body: JSON.stringify(userData),
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
-				},
-			},
-			'http://localhost:9000/get_file/dummy.csv',
-			'http://localhost:9000/testAPI'
+			'http://localhost:9000/testAPI',
+			'http://localhost:9000/getData/dummy.json',
+			'http://localhost:9000/getData/dummy.json'
 		];
 		
 		Promise.all(urls.map(url =>
-		fetch(url)
-			.then(checkStatus)                 
-			.then(parseJSON)
-			.catch(error => console.log('There was a problem!', error))
-		))
-		.then(data => {
-			this.setState({ 
-				personalFit: data[0],
-				publicPerception: data[1],
-				financialOutlook: data[2],
-				isLoading: false
+			fetch(url)
+				.then(checkStatus)                 
+				.then(parseJSON)
+				.catch(error => console.log('There was a problem!', error))
+			))
+			.then(data => {
+				this.setState({ 
+					personalFit: data[0],
+					publicPerception: data[1],
+					financialOutlook: data[2],
+					isLoading: false
+				});
 			});
-		})
 
 		function checkStatus(response) {
 			if (response.ok) {
@@ -54,7 +47,7 @@ class TableContainer extends Component {
 		}
 		
 		function parseJSON(response) {
-			return response.text();
+			return response.json();
 		}
 	}  
 
@@ -66,7 +59,7 @@ class TableContainer extends Component {
 						<h1>This is a table placeholder.</h1>
 						{this.state.isLoading ? <LoadingSpinner /> :
 						// table compent here
-						this.state.personalFit
+						<p>test</p>
 						}
 					</div>
 				</div>
