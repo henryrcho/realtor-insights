@@ -26,7 +26,7 @@ class TableContainer extends Component {
 					'Content-Type': 'application/json'
 				},
 			},
-			'http://localhost:9000/testAPI',
+			'http://localhost:9000/get_file/dummy.csv',
 			'http://localhost:9000/testAPI'
 		];
 		

@@ -99,6 +99,7 @@ class FormContainer extends Component {
   handleClearForm(e) {
     e.preventDefault();
     this.setState({ 
+      // TODO: edit this
       userData: {
         name: '',
         age: '',
