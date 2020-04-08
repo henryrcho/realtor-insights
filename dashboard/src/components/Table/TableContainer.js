@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoadingSpinner from './LoadingSpinner';
-import ResultsTable from './ResultsTable';
+import SortableTable from './SortableTable';
 
 
 class TableContainer extends Component {
@@ -82,12 +82,10 @@ class TableContainer extends Component {
 					<div className="col pt-5">
 						{this.state.isLoading ? <LoadingSpinner /> :
 							<div>
-								<h1>Here are your results!</h1>
-								<div className="col pt-5">
-									<ResultsTable 
-										rows={this.state.rows}
-									/>
-								</div>
+								<h2>Here are your results!</h2>
+								<SortableTable 
+									rows={this.state.rows}
+								/>
 							</div>
 						}
 					</div>
