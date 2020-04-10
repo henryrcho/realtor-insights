@@ -32,14 +32,18 @@ class TableContainer extends Component {
 
 	componentDidMount() {
 		// For making the table
-		var personalFit = require('./dummy.json');
+		const user = this.state.userData;
 		var publicPerception = require('./dummy.json');
 		var financialOutlook = require('./dummy.json');
-		this.setState({ 
-			rows: this.formatRows(personalFit, publicPerception, financialOutlook)
-		});
-		
-
+		fetch('http://localhost:9000/runModel?age='+user.age+'&race='+user.race)
+			.then(checkStatus)                 
+			.then(parseJSON)
+			.catch(error => console.log('There was a problem!', error))
+			.then(data => {
+				this.setState({
+					rows: this.formatRows(data, publicPerception, financialOutlook)
+				});
+			});		
 
 		// let userData = this.state.userData;
 		// this.setState({ isLoading: true });
@@ -62,17 +66,17 @@ class TableContainer extends Component {
 		// 		});
 		// 	});
 
-		// function checkStatus(response) {
-		// 	if (response.ok) {
-		// 		return Promise.resolve(response);
-		// 	} else {
-		// 		return Promise.reject(new Error(response.statusText));
-		// 	}
-		// }
+		function checkStatus(response) {
+			if (response.ok) {
+				return Promise.resolve(response);
+			} else {
+				return Promise.reject(new Error(response.statusText));
+			}
+		}
 		
-		// function parseJSON(response) {
-		// 	return response.json();
-		// }
+		function parseJSON(response) {
+			return response.json();
+		}
 	}  
 
 	render() {

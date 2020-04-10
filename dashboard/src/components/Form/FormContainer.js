@@ -14,7 +14,6 @@ class FormContainer extends Component {
     this.state = {
       // TODO: edit this
       userData: {
-        name: '',
         age: '',
         race: '',
         gender: '',
@@ -101,7 +100,6 @@ class FormContainer extends Component {
     this.setState({ 
       // TODO: edit this
       userData: {
-        name: '',
         age: '',
         race: '',
         gender: '',
