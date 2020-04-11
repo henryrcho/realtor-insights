@@ -32,39 +32,39 @@ class TableContainer extends Component {
 
 	componentDidMount() {
 		// For making the table
-		const user = this.state.userData;
-		var publicPerception = require('./dummy.json');
-		var financialOutlook = require('./dummy.json');
-		fetch('http://localhost:9000/runModel?age='+user.age+'&race='+user.race)
-			.then(checkStatus)                 
-			.then(parseJSON)
-			.catch(error => console.log('There was a problem!', error))
-			.then(data => {
-				this.setState({
-					rows: this.formatRows(data, publicPerception, financialOutlook)
-				});
-			});		
-
-		// let userData = this.state.userData;
-		// this.setState({ isLoading: true });
-		// const urls = [
-		// 	'http://localhost:9000/getData/dummy.json',
-		// 	'http://localhost:9000/getData/dummy.json',
-		// 	'http://localhost:9000/getData/dummy.json'
-		// ];
-		
-		// Promise.all(urls.map(url =>
-		// 	fetch(url)
-		// 		.then(checkStatus)                 
-		// 		.then(parseJSON)
-		// 		.catch(error => console.log('There was a problem!', error))
-		// 	))
+		// const user = this.state.userData;
+		// var publicPerception = require('./dummy.json');
+		// var financialOutlook = require('./dummy.json');
+		// fetch('https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+'&race='+user.race)
+		// 	.then(checkStatus)                 
+		// 	.then(parseJSON)
+		// 	.catch(error => console.log('There was a problem!', error))
 		// 	.then(data => {
 		// 		this.setState({
-		// 			rows: this.formatRows(data[0], data[1], data[2]),
-		// 			isLoading: false
+		// 			rows: this.formatRows(data, publicPerception, financialOutlook)
 		// 		});
-		// 	});
+		// 	});		
+
+		const user = this.state.userData;
+		this.setState({ isLoading: true });
+		const urls = [
+			'https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+'&race='+user.race,
+			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json',
+			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json'
+		];
+		
+		Promise.all(urls.map(url =>
+			fetch(url)
+				.then(checkStatus)                 
+				.then(parseJSON)
+				.catch(error => console.log('There was a problem!', error))
+			))
+			.then(data => {
+				this.setState({
+					rows: this.formatRows(data[0], data[1], data[2]),
+					isLoading: false
+				});
+			});
 
 		function checkStatus(response) {
 			if (response.ok) {

@@ -13,17 +13,17 @@ function runScript(age, race, res) {
     const process = spawn('python', ['./script1.py', age, race]);
     
     process.stdout.on('data', function(data) {
-        jsonData.push(data);
-    });
-
-    process.stderr.on('data', function(data){
-        res.send(data.toString());
+        return jsonData.push(data);
     });
 
     process.stdout.on('close', function(code) {
         console.log('child process close all stdio with code', code);
-        res.send(jsonData.join(""));
-    })
+        return res.send(jsonData.join(""));
+    });
+
+    process.stderr.on('data', function(data){
+        return res.send(data.toString());
+    });
 }
 
 module.exports = router;

@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const AWS = require('aws-sdk');
-const keys = require('../keys.js');
 
 
 // Configuring the AWS environment
 AWS.config.update({
-  accessKeyId: keys.iam_access_id,
-  secretAccessKey: keys.iam_secret,
+  accessKeyId: process.env.S3_KEY,
+  secretAccessKey: process.env.S3_SECRET
 });
 const s3 = new AWS.S3();
 
@@ -24,7 +23,7 @@ router.get('/:file_name', function(req, res, next) {
 function retrieveFile(filename, res){
   // Configuring parameters
   const getParams = {
-    Bucket: 'uoft-esc472-capstone',
+    Bucket: process.env.S3_BUCKET,
     Key: filename
   };
 
