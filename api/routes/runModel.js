@@ -7,7 +7,12 @@ const { spawn } = require('child_process');
 router.get('/', function(req, res, next) {
     runScript(req.query.age, req.query.race, res);
 });
-
+/**
+ * Send user input to model, process, and return results
+ * @param {*} age User age
+ * @param {*} race User race
+ * @param {*} res Response for request
+ */
 function runScript(age, race, res) {
     var jsonData = [];
     const process = spawn('python', ['./script1.py', age, race]);

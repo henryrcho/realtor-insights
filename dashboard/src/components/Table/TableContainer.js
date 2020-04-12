@@ -12,12 +12,21 @@ class TableContainer extends Component {
 			rows: []
 		}
 	}
+	sort(a, b) {
+		// Compare the 2 districts
+		if (a.district < b.district) return -1;
+		if (a.district > b.district) return 1;
+		return 0;
+	}
 
 	formatRows(model1, model2, model3) {
+		model1.sort(this.sort);
+		model2.sort(this.sort);
+		model3.sort(this.sort);
 		var rows = [];
 		for(var i = 0; i < model1.length; i++) {
 			if((model1[i].district !== model2[i].district) || (model1[i].district !== model3[i].district)) {
-				return [];
+				return console.log("Error! Out-of-order");
 			}
 			rows[i] = { 
 				district: model1[i].district,
