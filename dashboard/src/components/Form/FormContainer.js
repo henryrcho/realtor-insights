@@ -14,7 +14,6 @@ class FormContainer extends Component {
     this.state = {
       // TODO: edit this
       userData: {
-        name: '',
         age: '',
         race: '',
         gender: '',
@@ -99,8 +98,8 @@ class FormContainer extends Component {
   handleClearForm(e) {
     e.preventDefault();
     this.setState({ 
+      // TODO: edit this
       userData: {
-        name: '',
         age: '',
         race: '',
         gender: '',

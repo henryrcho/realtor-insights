@@ -73,3 +73,11 @@ forms: https://www.codementor.io/@blizzerand/building-forms-using-react-everythi
 redirect: https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
 pass data to component: https://stackoverflow.com/questions/52064303/reactjs-pass-props-with-redirect-component
 react and express: https://www.freecodecamp.org/news/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c/
+tables: https://material-ui.com/components/tables/
+
+
+### On a push
+once all changes to be pushed to heroku; do 
+git add .
+git commit -m "changes for herku front end"
+git push heroku_front_end master

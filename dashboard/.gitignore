@@ -133,7 +133,7 @@ dmypy.json
 
 # dependencies
 /api/node_modules
-/dashboard/node_modules
+node_modules
 /.pnp
 .pnp.js
 

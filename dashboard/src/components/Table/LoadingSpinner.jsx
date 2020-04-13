@@ -7,7 +7,7 @@ const LoadingSpinner = (props) => {
             <div className="spinner-border text-primary mt-5" style={{width: 10+'rem', height: 10+'rem'}}  role="status">
                 <span className="sr-only">Loading...</span>
             </div>
-            <p className="mt-5">This make take a few moments...</p>
+            <p className="mt-5">This may take a few moments...</p>
         </div>
     )}
 
