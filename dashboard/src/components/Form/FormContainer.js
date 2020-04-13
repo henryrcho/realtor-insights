@@ -158,28 +158,7 @@ class FormContainer extends Component {
               </div>
 
               <div className="row">
-              <div className="col-md-6">
-                  <Select title={'Number of Bedrooms'}
-                    name={'bedrooms'}
-                    options = {this.state.bedroomOptions} 
-                    value = {this.state.userData.bedrooms}
-                    placeholder = {'Select Number of Bedrooms'}
-                    handleChange = {this.handleInput}
-                  /> {/* Bedroom Selection */}
-                </div>
                 <div className="col-md-6">
-                  <Select title={'Number of Vehicles'}
-                    name={'income'}
-                    options = {this.state.vehicleOptions} 
-                    value = {this.state.userData.vehicles}
-                    placeholder = {'Select Number of Vehicles'}
-                    handleChange = {this.handleInput}
-                  /> {/* Income Selection */}
-                </div>
-              </div>
-
-              <div className="row">
-              <div className="col-md-6">
                   <Select title={'Occupation'}
                     name={'occupation'}
                     options = {this.state.occupationOptions} 
@@ -190,10 +169,31 @@ class FormContainer extends Component {
                 </div>
                 <div className="col-md-6">
                   <Select title={'Household Income'}
-                    name={'vehicles'}
+                    name={'income'}
                     options = {this.state.incomeOptions} 
                     value = {this.state.userData.income}
                     placeholder = {'Select Household Income'}
+                    handleChange = {this.handleInput}
+                  /> {/* Income Selection */}
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-md-6">
+                  <Select title={'Number of Bedrooms'}
+                    name={'bedrooms'}
+                    options = {this.state.bedroomOptions} 
+                    value = {this.state.userData.bedrooms}
+                    placeholder = {'Select Number of Bedrooms'}
+                    handleChange = {this.handleInput}
+                  /> {/* Bedroom Selection */}
+                </div>
+                <div className="col-md-6">
+                  <Select title={'Number of Vehicles'}
+                    name={'vehicles'}
+                    options = {this.state.vehicleOptions} 
+                    value = {this.state.userData.vehicles}
+                    placeholder = {'Select Number of Vehicles'}
                     handleChange = {this.handleInput}
                   /> {/* Vehicle Selection */}
                 </div>
