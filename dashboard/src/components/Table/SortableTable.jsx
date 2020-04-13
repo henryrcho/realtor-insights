@@ -10,6 +10,8 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
+import ReactTooltip from "react-tooltip";
+import SentimentToolTip from '../Modal/SentimentToolTip';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -179,9 +181,11 @@ export default function SortableTable(props) {
                         {row.district}
                       </TableCell>
                       <TableCell align="right">{row.personalFit}</TableCell>
-                      <TableCell align="right" onClick={(event) => handleClick(event, row.name)}>
-                        {/* Henry, you will want to add your element here, passing in row.publicPerception as a prop to your histogram element */}
-                        {row.publicPerception.sentiment}
+                      <TableCell align="right" data-tip="" data-for={row.district}>
+                        {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
+                        <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
+                          <SentimentToolTip histData={row.publicPerception.histogram} />
+                        </ReactTooltip>
                       </TableCell>
                       <TableCell align="right">{row.financialOutlook}</TableCell>
                     </TableRow>

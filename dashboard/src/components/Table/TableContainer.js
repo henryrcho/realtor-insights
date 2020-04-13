@@ -27,6 +27,7 @@ class TableContainer extends Component {
 		var rows = [];
 		for(var i = 0; i < model1.length; i++) {
 			if((model1[i].district !== model2[i].district) || (model1[i].district !== model3[i].district)) {
+				console.log(model1[i].district, model2[i].district, model3[i].district)
 				return console.log("Error! Out-of-order");
 			}
 			rows[i] = { 
