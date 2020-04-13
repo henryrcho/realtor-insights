@@ -35,7 +35,7 @@ class SentimentToolTip extends Component {
           padding: '30px',
         }}
       >
-        <Chart title="Sentiment distibution" series={series} data={data} axes={axes} />
+        <Chart title="Generic tooltip graph" series={series} data={data} axes={axes} />
       </div>
     );
   }
