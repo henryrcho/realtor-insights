@@ -180,15 +180,21 @@ export default function SortableTable(props) {
                       <TableCell component="th" id={labelId} scope="row" padding="none">
                         {row.district}
                       </TableCell>
-                      <TableCell align="right">{row.personalFit}</TableCell>
+                      <TableCell align="right">
+                        {/* TODO: add tooltip */}
+                        {row.personalFit}
+                      </TableCell>
                       <TableCell align="right" data-tip="" data-for={row.district}>
                         {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
                         {row.publicPerception.sentiment !== "N/A" ? 
                           <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
-                            <GenericToolTip data={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
+                            <GenericToolTip data={row.publicPerception.histogram} yRange={buckets} type={'bar'}/>
                           </ReactTooltip> : ""}
                       </TableCell>
-                      <TableCell align="right">{row.financialOutlook}</TableCell>
+                      <TableCell align="right">
+                        {/* TODO: add tooltip */}
+                        {row.financialOutlook}
+                      </TableCell>
                     </TableRow>
                   );
                 })}

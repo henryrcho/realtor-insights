@@ -9,10 +9,10 @@ class GenericToolTip extends Component {
   }
 
   buildData() {
-    const { data, buckets, type } = this.props;
+    const { data, yRange, type } = this.props;
     let dataForGraph = [];
-    for (let i = 0; i < buckets.length; i++) {
-      dataForGraph.push([buckets[i], histData[i]])
+    for (let i = 0; i < yRange.length; i++) {
+      dataForGraph.push([yRange[i], data[i]])
     }
     return {dataForGraph, type};
   }
