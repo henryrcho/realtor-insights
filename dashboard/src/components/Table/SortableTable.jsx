@@ -185,7 +185,7 @@ export default function SortableTable(props) {
                         {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
                         {row.publicPerception.sentiment !== "N/A" ? 
                           <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
-                            <GenericToolTip histData={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
+                            <GenericToolTip data={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
                           </ReactTooltip> : ""}
                       </TableCell>
                       <TableCell align="right">{row.financialOutlook}</TableCell>

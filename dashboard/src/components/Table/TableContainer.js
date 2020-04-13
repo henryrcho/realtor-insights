@@ -61,7 +61,12 @@ class TableContainer extends Component {
 		const user = this.state.userData;
 		this.setState({ isLoading: true });
 		const urls = [
-			'https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+'&race='+user.race,
+			'https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+
+				'&race='+user.race+
+				'&occupation='+user.occupation+
+				'&income='+user.income+
+				'&bedrooms='+user.bedrooms+
+				'&vehicles='+user.vehicles,
 			'https://radiant-fortress-14740.herokuapp.com/getData/sentiment.json',
 			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json'
 		];

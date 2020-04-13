@@ -27,6 +27,7 @@ router.get('/', function(req, res, next) {
  */
 function runScript(age, race, occupation, income, bedrooms, vehicles, res) {
     var jsonData = [];
+    // TODO: replace ./script1.py with pickled knn model
     const process = spawn('python', ['./script1.py', age, race, occupation, income, bedrooms, vehicles]);
     
     process.stdout.on('data', function(data) {
