@@ -138,6 +138,10 @@ export default function SortableTable(props) {
     setPage(0);
   };
 
+  const handleClick = (event, name) => {
+    // placeholder for now, will render appropriate graph / charts
+  };
+
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
@@ -175,7 +179,10 @@ export default function SortableTable(props) {
                         {row.district}
                       </TableCell>
                       <TableCell align="right">{row.personalFit}</TableCell>
-                      <TableCell align="right">{row.publicPerception}</TableCell>
+                      <TableCell align="right" onClick={(event) => handleClick(event, row.name)}>
+                        {/* Henry, you will want to add your element here, passing in row.publicPerception as a prop to your histogram element */}
+                        {row.publicPerception.sentiment}
+                      </TableCell>
                       <TableCell align="right">{row.financialOutlook}</TableCell>
                     </TableRow>
                   );

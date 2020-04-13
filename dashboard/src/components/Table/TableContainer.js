@@ -12,6 +12,7 @@ class TableContainer extends Component {
 			rows: []
 		}
 	}
+	
 	sort(a, b) {
 		// Compare the 2 districts
 		if (a.district < b.district) return -1;
@@ -31,7 +32,10 @@ class TableContainer extends Component {
 			rows[i] = { 
 				district: model1[i].district,
 				personalFit: model1[i].sentiment,
-				publicPerception: model2[i].sentiment,
+				publicPerception: { 
+					sentiment: model2[i].sentiment,
+					histogram: model2[i].histogram
+				},
 				financialOutlook: model3[i].sentiment,
 
 			}
@@ -58,7 +62,7 @@ class TableContainer extends Component {
 		this.setState({ isLoading: true });
 		const urls = [
 			'https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+'&race='+user.race,
-			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json',
+			'https://radiant-fortress-14740.herokuapp.com/getData/sentiment.json',
 			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json'
 		];
 		
