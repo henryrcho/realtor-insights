@@ -12,20 +12,30 @@ class FormContainer extends Component {
     super(props);
 
     this.state = {
-      // TODO: edit this
       userData: {
         age: '',
         race: '',
-        gender: '',
-        skills: [],
-        about: ''
+        occupation: '',
+        income: '',
+        bedrooms: '',
+        vehicles: ''
       },
 
-      // TODO: edit this
-      ageOptions: ['0-5', '5-9', '10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
-      raceOptions: ['Hispanic or Latino', 'White', 'Black or African American', 'Asian', 'Other'], 
-      genderOptions: ['Male', 'Female', 'Other'],
-      skillOptions: ['Programming', 'Development', 'Design', 'Testing'],
+      ageOptions: ['18-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
+      raceOptions: ['Latino', 'Caucasian', 'African American', 'Asian', 'Other'], 
+      occupationOptions: [
+        'Construction', 'Manufacturing', 'Wholesale trade', 'Retail trade', 'Transportation, warehousing, or utilities',
+        'Information', 'Finance, insurance, real estate, or rental & leasing', 'Professional, scientific, management, administrative, or waste management services',
+        'Educational services, health care, or social assistance', 'Arts, entertainment, recreation, accommodation, or food services',
+        'Other services, except public administration', 'Public administration'   
+      ],
+      incomeOptions: [
+        'Less than $10,000', '$10,000 to $14,999', '$15,000 to $24,999', '$25,000 to $34,999', '$35,000 to $49,999', 
+        '$50,000 to $74,999', '$75,000 to $99,999', '$100,000 to $149,999', '$150,000 to $199,999', '$200,000 or more'
+      ],
+      bedroomOptions: ['0 bedrooms', '1 bedroom', '2 bedrooms', '3 bedrooms', '4 bedrooms', '5 or more bedrooms'],
+      vehicleOptions: ['0 vehicles', '1 vehicle', '2 vehicles', '3 or more vehicles'],
+      
 
       redirect: null,
     }
@@ -98,13 +108,13 @@ class FormContainer extends Component {
   handleClearForm(e) {
     e.preventDefault();
     this.setState({ 
-      // TODO: edit this
       userData: {
         age: '',
         race: '',
-        gender: '',
-        skills: [],
-        about: ''
+        occupation: '',
+        income: '',
+        bedrooms: '',
+        vehicles: ''
       },
     })
   }
@@ -125,7 +135,7 @@ class FormContainer extends Component {
                 <h2>Tell us a bit about yourself...</h2>
             </div>
         </div>
-        <div className="row">
+        <div className="row pt-5">
           <div className="col-md-2"></div>
           <div className="col-md-8">
             <form className="container-fluid" onSubmit={this.handleFormSubmit}>
@@ -151,7 +161,45 @@ class FormContainer extends Component {
               </div>
 
               <div className="row">
-                {/* more fields */}
+              <div className="col-md-6">
+                  <Select title={'Number of Bedrooms'}
+                    name={'bedrooms'}
+                    options = {this.state.bedroomOptions} 
+                    value = {this.state.userData.bedrooms}
+                    placeholder = {'Select Number of Bedrooms'}
+                    handleChange = {this.handleInput}
+                  /> {/* Bedroom Selection */}
+                </div>
+                <div className="col-md-6">
+                  <Select title={'Number of Vehicles'}
+                    name={'income'}
+                    options = {this.state.vehicleOptions} 
+                    value = {this.state.userData.vehicles}
+                    placeholder = {'Select Number of Vehicles'}
+                    handleChange = {this.handleInput}
+                  /> {/* Income Selection */}
+                </div>
+              </div>
+
+              <div className="row">
+              <div className="col-md-6">
+                  <Select title={'Occupation'}
+                    name={'occupation'}
+                    options = {this.state.occupationOptions} 
+                    value = {this.state.userData.occupation}
+                    placeholder = {'Select Occupation'}
+                    handleChange = {this.handleInput}
+                  /> {/* Occupation Selection */}
+                </div>
+                <div className="col-md-6">
+                  <Select title={'Household Income'}
+                    name={'vehicles'}
+                    options = {this.state.incomeOptions} 
+                    value = {this.state.userData.income}
+                    placeholder = {'Select Household Income'}
+                    handleChange = {this.handleInput}
+                  /> {/* Vehicle Selection */}
+                </div>
               </div>
 
               <Button 
