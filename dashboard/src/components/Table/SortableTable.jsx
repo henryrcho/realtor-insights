@@ -121,7 +121,11 @@ export default function SortableTable(props) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('district');
   const [page, setPage] = React.useState(0);
-	const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const buckets = [
+    '-1 to -0.8', '-0.8 to -0.6', '-0.6 to -0.4', '-0.4 to -0.2', '-0.2 to 0',
+    '0 to 0.2', '0.2 to 0.4', '0.4 to 0.6', '0.6 to 0.8', '0.8 to 1'
+  ];
 	
 	useEffect(() => setRows(props.rows), [props.rows]);
 
@@ -180,7 +184,7 @@ export default function SortableTable(props) {
                       <TableCell align="right" data-tip="" data-for={row.district}>
                         {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
                         <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
-                          <SentimentToolTip histData={row.publicPerception.histogram} />
+                          <SentimentToolTip histData={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
                         </ReactTooltip>
                       </TableCell>
                       <TableCell align="right">{row.financialOutlook}</TableCell>

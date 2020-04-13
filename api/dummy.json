@@ -52,10 +52,6 @@
     "sentiment": 0.1
   },
   {
-    "district": "New York",
-    "sentiment": 0.1
-  },
-  {
     "district": "Cypress Hills-City Line",
     "sentiment": 0.1
   },
@@ -217,10 +213,6 @@
   },
   {
     "district": "Mott Haven-Port Morris",
-    "sentiment": 0.1
-  },
-  {
-    "district": "Rikers Island",
     "sentiment": 0.1
   },
   {
@@ -456,7 +448,7 @@
     "sentiment": 0.1
   },
   {
-    "district": "Marble Hill2-Inwood",
+    "district": "Marble Hill-Inwood",
     "sentiment": 0.1
   },
   {
@@ -513,10 +505,6 @@
   },
   {
     "district": "Jackson Heights",
-    "sentiment": 0.1
-  },
-  {
-    "district": "Airport",
     "sentiment": 0.1
   },
   {
@@ -773,10 +761,6 @@
   },
   {
     "district": "Great Kills",
-    "sentiment": 0.1
-  },
-  {
-    "district": "park-cemetery-etc-Staten Island",
     "sentiment": 0.1
   }
 ]
