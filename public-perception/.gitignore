@@ -1,0 +1,6 @@
+stanford-core-nlp
+cache
+sentiment.json
+__pycache__
+.DS_Store
+.ipynb_checkpoints 

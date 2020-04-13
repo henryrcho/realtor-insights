@@ -12,18 +12,18 @@ import TableContainer from './components/Table/TableContainer';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/tos' component={ToS} />
-          <Route path='/legal' component={Legal} />
-          <Route path='/search' component={FormContainer} />
-          <Route path='/results' component={TableContainer} />
-        </Switch>
-      </Router>
+    <div className="App"> 
+        <Router>
+          <NavBar />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/about' component={About} />
+              <Route path='/tos' component={ToS} />
+              <Route path='/legal' component={Legal} />
+              <Route path='/search' component={FormContainer} />
+              <Route path='/results' component={TableContainer} />
+            </Switch>
+        </Router>
     </div>
   );
 }

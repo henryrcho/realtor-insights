@@ -7,3 +7,5 @@ Repository for all things related to Capstone.
 ### Notes:
 The dahboard is running on port 3000. To change, enter 'export PORT=<new_port>'
 The servers run on ports specified in api/bin/www
+
+### Push this directory for master git repo changes

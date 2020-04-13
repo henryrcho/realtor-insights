@@ -1,0 +1,766 @@
+[
+  {
+    "district": "Williamsburg",
+    "sentiment": 0.1
+  },
+  {
+    "district": "North Side-South Side",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Greenpoint",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Williamsburg",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Brooklyn Heights-Cobble Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "DUMBO-Vinegar Hill-Downtown Brooklyn-Boerum Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Fort Greene",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Clinton Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Stuyvesant Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bedford",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bushwick North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bushwick South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "park-cemetery-etc-Brooklyn",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Cypress Hills-City Line",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Starrett City",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Carroll Gardens-Columbia Street-Red Hook",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Park Slope-Gowanus",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Sunset Park West",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Sunset Park East",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Windsor Terrace",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Crown Heights North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Prospect Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Prospect Lefferts Gardens-Wingate",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Crown Heights South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Dyker Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bay Ridge",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bath Beach",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bensonhurst West",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bensonhurst East",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Kensington-Ocean Parkway",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Ocean Parkway South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Borough Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Brighton Beach",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Seagate-Coney Island",
+    "sentiment": 0.1
+  },
+  {
+    "district": "West Brighton",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Gravesend",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Flatbush",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Midwood",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Sheepshead Bay-Gerritsen Beach-Manhattan Bch",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Homecrest",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Madison",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Ocean Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Brownsville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East New York (Pennsylvania Ave)",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Flatbush-Farragut",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Erasmus",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Rugby-Remsen Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Georgetown-Marine Park-Bergen Beach-Mill Basin",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Canarsie",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Flatlands",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Hunts Point",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Longwood",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Melrose South-Mott Haven North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Mott Haven-Port Morris",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Claremont-Bathgate",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Belmont",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Tremont",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Morrisania-Melrose",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Crotona Park East",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Concourse-Concourse Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Highbridge",
+    "sentiment": 0.1
+  },
+  {
+    "district": "West Concourse",
+    "sentiment": 0.1
+  },
+  {
+    "district": "University Heights-Morris Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Fordham South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Mount Hope",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bedford Park-Fordham North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Kingsbridge Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Norwood",
+    "sentiment": 0.1
+  },
+  {
+    "district": "North Riverdale-Fieldston-Riverdale",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Van Cortlandt Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Spuyten Duyvil-Kingsbridge",
+    "sentiment": 0.1
+  },
+  {
+    "district": "West Farms-Bronx River",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Soundview-Castle Hill-Clason Point-Harding Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Parkchester",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Soundview-Bruckner",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Westchester-Unionport",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Pelham Bay-Country Club-City Island",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Co-op City",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Schuylerville-Throgs Neck-Edgewater Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bronxdale",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Allerton-Pelham Gardens",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Van Nest-Morris Park-Westchester Square",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Pelham Parkway",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Eastchester-Edenwald-Baychester",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Williamsbridge-Olinville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Woodlawn-Wakefield",
+    "sentiment": 0.1
+  },
+  {
+    "district": "park-cemetery-etc-Bronx",
+    "sentiment": 0.1
+  },
+  {
+    "district": "West Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "SoHo-TriBeCa-Civic Center-Little Italy",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Battery Park City-Lower Manhattan",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Chinatown",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Lower East Side",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Hudson Yards-Chelsea-Flat Iron-Union Square",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Clinton",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Midtown-Midtown South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Turtle Bay-East Midtown",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Murray Hill-Kips Bay",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Gramercy",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Stuyvesant Town-Cooper Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Upper West Side",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Lincoln Square",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Lenox Hill-Roosevelt Island",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Yorkville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Upper East Side-Carnegie Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Hamilton Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Manhattanville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Morningside Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Central Harlem North-Polo Grounds",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Central Harlem South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Harlem South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Harlem North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Marble Hill-Inwood",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Washington Heights North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Washington Heights South",
+    "sentiment": 0.1
+  },
+  {
+    "district": "park-cemetery-etc-Manhattan",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Queensbridge-Ravenswood-Long Island City",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Astoria",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Old Astoria",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Steinway",
+    "sentiment": 0.1
+  },
+  {
+    "district": "park-cemetery-etc-Queens",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Hunters Point-Sunnyside-West Maspeth",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Elmhurst-Maspeth",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Woodside",
+    "sentiment": 0.1
+  },
+  {
+    "district": "North Corona",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Elmhurst",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Jackson Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Corona",
+    "sentiment": 0.9
+  },
+  {
+    "district": "Elmhurst",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Glendale",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Ridgewood",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Middle Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Maspeth",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Forest Hills",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Rego Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Flushing",
+    "sentiment": 0.1
+  },
+  {
+    "district": "College Point",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Ft. Totten-Bay Terrace-Clearview",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Whitestone",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Murray Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "East Flushing",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Queensboro Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Jamaica Estates-Holliswood",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Briarwood-Jamaica Hills",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Kew Gardens Hills",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Pomonok-Flushing Heights-Hillcrest",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Fresh Meadows-Utopia",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Woodhaven",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Richmond Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Kew Gardens",
+    "sentiment": 0.1
+  },
+  {
+    "district": "South Ozone Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Ozone Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Lindenwood-Howard Beach",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Oakland Gardens",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Douglas Manor-Douglaston-Little Neck",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bayside-Bayside Hills",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Auburndale",
+    "sentiment": 0.1
+  },
+  {
+    "district": "South Jamaica",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Springfield Gardens North",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Hollis",
+    "sentiment": 0.1
+  },
+  {
+    "district": "St. Albans",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Jamaica",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Baisley Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Springfield Gardens South-Brookville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Rosedale",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Cambria Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Queens Village",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Bellerose",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Glen Oaks-Floral Park-New Hyde Park",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Laurelton",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Breezy Point-Belle Harbor-Rockaway Park-Broad Channel",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Hammels-Arverne-Edgemere",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Far Rockaway-Bayswater",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Westerleigh",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Grymes Hill-Clifton-Fox Hills",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Mariner's Harbor-Arlington-Port Ivory-Graniteville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "West New Brighton-New Brighton-St. George",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Port Richmond",
+    "sentiment": 0.1
+  },
+  {
+    "district": "New Brighton-Silver Lake",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Stapleton-Rosebank",
+    "sentiment": 0.1
+  },
+  {
+    "district": "New Springville-Bloomfield-Travis",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Grasmere-Arrochar-Ft. Wadsworth",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Todt Hill-Emerson Hill-Heartland Village-Lighthouse Hill",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Old Town-Dongan Hills-South Beach",
+    "sentiment": 0.1
+  },
+  {
+    "district": "New Dorp-Midland Beach",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Annadale-Huguenot-Prince's Bay-Eltingville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Charleston-Richmond Valley-Tottenville",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Oakwood-Oakwood Beach",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Rossville-Woodrow",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Arden Heights",
+    "sentiment": 0.1
+  },
+  {
+    "district": "Great Kills",
+    "sentiment": 0.1
+  }
+]
