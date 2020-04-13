@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-// import CheckBox from './CheckBox';  
-// import Input from './Input';  
-// import TextArea from './TextArea';  
 import Select from './Select';
 import Button from './Button';
 import { Redirect } from "react-router-dom";
@@ -218,35 +215,6 @@ class FormContainer extends Component {
             </form>
           </div>
         </div>
-        
-       {/* example feilds */}
-        {/* <Input inputtype={'text'}
-          title= {'Full Name'} 
-          name= {'name'}
-          value={this.state.userData.name} 
-          placeholder = {'Enter your name'}
-          handleChange = {this.handleInput} 
-        />*/} {/* Name of the user */}
-        {/* <Select title={'Gender'}
-          name={'gender'}
-          options = {this.state.genderOptions} 
-          value = {this.state.userData.gender}
-          placeholder = {'Select Gender'}
-          handleChange = {this.handleInput}
-        />*/} {/* Age Selection */}
-        {/* <CheckBox title={'Skills'}
-          name={'skills'}
-          options={this.state.skillOptions}
-          selectedOptions = { this.state.userData.skills}
-          handleChange={this.handleCheckBox}
-        />*/} {/* Skill */}
-        {/* <TextArea title={'About you.'}
-          rows={3}
-          value={this.state.userData.about}
-          name={'currentPetInfo'}
-          handleChange={this.handleTextArea}
-          placeholder={'Describe your past experience and skills'} 
-        />*/} {/* About you */}
       </div>
     );
   }

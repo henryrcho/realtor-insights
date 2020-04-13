@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import ReactTooltip from "react-tooltip";
-import SentimentToolTip from '../Modal/SentimentToolTip';
+import GenericToolTip from '../Modal/GenericToolTip';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -185,7 +185,7 @@ export default function SortableTable(props) {
                         {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
                         {row.publicPerception.sentiment !== "N/A" ? 
                           <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
-                            <SentimentToolTip histData={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
+                            <GenericToolTip histData={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
                           </ReactTooltip> : ""}
                       </TableCell>
                       <TableCell align="right">{row.financialOutlook}</TableCell>
