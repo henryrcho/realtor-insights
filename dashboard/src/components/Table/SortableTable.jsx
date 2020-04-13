@@ -140,10 +140,6 @@ export default function SortableTable(props) {
     setPage(0);
   };
 
-  const handleClick = (event, name) => {
-    // placeholder for now, will render appropriate graph / charts
-  };
-
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
