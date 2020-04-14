@@ -15,13 +15,27 @@ import GenericToolTip from '../Modal/GenericToolTip';
 
 
 function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
+  // sort by district
+  if (orderBy === 'district') {
+    if (b[orderBy] < a[orderBy]) {
+      return -1;
+    }
+    if (b[orderBy] > a[orderBy]) {
+      return 1;
+    }
+    return 0;
   }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
+
+  // sorting sentiment
+  if (orderBy === 'publicPerception') {
+    if ((b[orderBy].sentiment === 'N/A') || (b[orderBy].sentiment < a[orderBy].sentiment)) {
+      return -1;
+    }
+    if ((a[orderBy].sentiment === 'N/A') || (b[orderBy].sentiment > a[orderBy].sentiment)) {
+      return 1;
+    }
+    return 0;
   }
-  return 0;
 }
 
 function getComparator(order, orderBy) {
