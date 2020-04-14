@@ -36,6 +36,17 @@ function descendingComparator(a, b, orderBy) {
     }
     return 0;
   }
+
+  // sorting financial outlook 
+  if (orderBy === 'financialOutlook') {
+    if ((b[orderBy].year_5 === 'N/A') || (b[orderBy].year_5 < a[orderBy].year_5)) {
+      return -1;
+    }
+    if ((a[orderBy].year_5 === 'N/A') || (b[orderBy].year_5 > a[orderBy].year_5)) {
+      return 1;
+    }
+    return 0;
+  }
 }
 
 function getComparator(order, orderBy) {
@@ -207,7 +218,7 @@ export default function SortableTable(props) {
                       </TableCell>
                       <TableCell align="right">
                         {/* TODO: add tooltip */}
-                        {row.financialOutlook}
+                        {row.financialOutlook.year_5}
                       </TableCell>
                     </TableRow>
                   );

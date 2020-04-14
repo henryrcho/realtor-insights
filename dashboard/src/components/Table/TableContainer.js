@@ -37,9 +37,13 @@ class TableContainer extends Component {
 					sentiment: model2[i].sentiment,
 					histogram: model2[i].histogram
 				},
-				// TODO: edit this schema
-				financialOutlook: model3[i].sentiment,
-
+				financialOutlook: {
+					year_1: model3[i].year_1,
+					year_3: model3[i].year_3,
+					year_5: model3[i].year_5,
+					projection: model3[i].projection,
+					current: model3[i].current
+				}
 			}
 		}
 		return rows;
@@ -56,8 +60,7 @@ class TableContainer extends Component {
 				'&bedrooms='+user.bedrooms+
 				'&vehicles='+user.vehicles,
 			'https://radiant-fortress-14740.herokuapp.com/getData/sentiment.json',
-			// TODO: retrieve proper financial outlook file from S3
-			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json'
+			'https://radiant-fortress-14740.herokuapp.com/getData/finance.json'
 		];
 		
 		Promise.all(urls.map(url =>

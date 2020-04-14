@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
         req.query.income,
         req.query.bedrooms,
         req.query.vehicles,
-        res);
+        res
+    );
 });
 
 /**
