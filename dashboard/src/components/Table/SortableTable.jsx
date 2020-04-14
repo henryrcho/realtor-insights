@@ -219,7 +219,7 @@ export default function SortableTable(props) {
                       </TableCell>
                       <TableCell align="right" data-tip="" data-for={row.district + 'Finance'}>
                         {/* TODO: add tooltip */}
-                        {row.financialOutlook.year_5}
+                        {row.financialOutlook.year_5 === "N/A" ? "N/A" : Number(row.financialOutlook.year_5.toFixed(3))}
                         {row.financialOutlook.year_5 !== "N/A" ? 
                           <ReactTooltip id={row.district + 'Finance'} backgroundColor="white" border={true} borderColor="gray">
                             <FinanceToolTip historical={row.financialOutlook.current} projection={row.financialOutlook.projection} />
