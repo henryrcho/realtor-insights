@@ -12,6 +12,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import ReactTooltip from "react-tooltip";
 import GenericToolTip from '../Modal/GenericToolTip';
+import FinanceToolTip from '../Modal/FinanceToolTip';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -209,16 +210,20 @@ export default function SortableTable(props) {
                         {/* TODO: add tooltip */}
                         {row.personalFit}
                       </TableCell>
-                      <TableCell align="right" data-tip="" data-for={row.district}>
+                      <TableCell align="right" data-tip="" data-for={row.district + 'Sentiment'}>
                         {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
                         {row.publicPerception.sentiment !== "N/A" ? 
-                          <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
+                          <ReactTooltip id={row.district + 'Sentiment'} backgroundColor="white" border={true} borderColor="gray">
                             <GenericToolTip data={row.publicPerception.histogram} yRange={buckets} type={'bar'}/>
                           </ReactTooltip> : ""}
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" data-tip="" data-for={row.district + 'Finance'}>
                         {/* TODO: add tooltip */}
                         {row.financialOutlook.year_5}
+                        {row.financialOutlook.year_5 !== "N/A" ? 
+                          <ReactTooltip id={row.district + 'Finance'} backgroundColor="white" border={true} borderColor="gray">
+                            <FinanceToolTip historical={row.financialOutlook.current} projection={row.financialOutlook.projection} />
+                          </ReactTooltip> : ""}
                       </TableCell>
                     </TableRow>
                   );
