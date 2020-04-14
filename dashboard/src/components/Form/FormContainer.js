@@ -36,29 +36,9 @@ class FormContainer extends Component {
 
       redirect: null,
     }
-    this.handleTextArea = this.handleTextArea.bind(this);
-    this.handleAge = this.handleAge.bind(this);
-    this.handleFullName = this.handleFullName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
-    this.handleCheckBox = this.handleCheckBox.bind(this);
     this.handleInput = this.handleInput.bind(this);
-  }
-  
-  handleFullName(e) {
-   let value = e.target.value;
-   this.setState( prevState => ({ userData : 
-        {...prevState.userData, name: value
-        }
-      }), () => console.log(this.state.userData))
-  }
-
-  handleAge(e) {
-       let value = e.target.value;
-   this.setState( prevState => ({ userData : 
-        {...prevState.userData, age: value
-        }
-      }), () => console.log(this.state.userData))
   }
 
   handleInput(e) {
@@ -67,34 +47,7 @@ class FormContainer extends Component {
    this.setState( prevState => ({ userData : 
         {...prevState.userData, [name]: value
         }
-      }), () => console.log(this.state.userData))
-  }
-
-  handleTextArea(e) {
-    console.log("Inside handleTextArea");
-    let value = e.target.value;
-    this.setState(prevState => ({
-      userData: {
-        ...prevState.userData, about: value
-      }
-    }), ()=>console.log(this.state.userData))
-  }
-
-
-  handleCheckBox(e) {
-
-    const newSelection = e.target.value;
-    let newSelectionArray;
-
-    if(this.state.userData.skills.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.userData.skills.filter(s => s !== newSelection)
-    } else {
-      newSelectionArray = [...this.state.userData.skills, newSelection];
-    }
-
-    this.setState( prevState => ({ userData:
-      {...prevState.userData, skills: newSelectionArray }
-    }));
+      }));
   }
 
   handleFormSubmit(e) {
