@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Chart } from 'react-charts'
 
 
-class SentimentToolTip extends Component {
+class GenericToolTip extends Component {
 	constructor(props) {
     super(props);
     this.props = props;
@@ -41,4 +41,4 @@ class SentimentToolTip extends Component {
   }
 }
 
-export default SentimentToolTip;
+export default GenericToolTip;
