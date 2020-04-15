@@ -31,39 +31,36 @@ class TableContainer extends Component {
 			}
 			rows[i] = { 
 				district: model1[i].district,
+				// TODO: edit this schema
 				personalFit: model1[i].sentiment,
 				publicPerception: { 
 					sentiment: model2[i].sentiment,
 					histogram: model2[i].histogram
 				},
-				financialOutlook: model3[i].sentiment,
-
+				financialOutlook: {
+					year_1: model3[i].year_1,
+					year_3: model3[i].year_3,
+					year_5: model3[i].year_5,
+					projection: model3[i].projection,
+					current: model3[i].current
+				}
 			}
 		}
 		return rows;
 	}
 
 	componentDidMount() {
-		// For making the table
-		// const user = this.state.userData;
-		// var publicPerception = require('./dummy.json');
-		// var financialOutlook = require('./dummy.json');
-		// fetch('https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+'&race='+user.race)
-		// 	.then(checkStatus)                 
-		// 	.then(parseJSON)
-		// 	.catch(error => console.log('There was a problem!', error))
-		// 	.then(data => {
-		// 		this.setState({
-		// 			rows: this.formatRows(data, publicPerception, financialOutlook)
-		// 		});
-		// 	});		
-
 		const user = this.state.userData;
 		this.setState({ isLoading: true });
 		const urls = [
-			'https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+'&race='+user.race,
+			'https://radiant-fortress-14740.herokuapp.com/runModel?age='+user.age+
+				'&race='+user.race+
+				'&occupation='+user.occupation+
+				'&income='+user.income+
+				'&bedrooms='+user.bedrooms+
+				'&vehicles='+user.vehicles,
 			'https://radiant-fortress-14740.herokuapp.com/getData/sentiment.json',
-			'https://radiant-fortress-14740.herokuapp.com/getData/dummy.json'
+			'https://radiant-fortress-14740.herokuapp.com/getData/finance.json'
 		];
 		
 		Promise.all(urls.map(url =>

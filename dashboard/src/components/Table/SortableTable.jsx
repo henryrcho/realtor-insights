@@ -11,17 +11,43 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import ReactTooltip from "react-tooltip";
-import SentimentToolTip from '../Modal/SentimentToolTip';
+import GenericToolTip from '../Modal/GenericToolTip';
+import FinanceToolTip from '../Modal/FinanceToolTip';
 
 
 function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
+  // sort by district
+  if (orderBy === 'district') {
+    if (b[orderBy] < a[orderBy]) {
+      return -1;
+    }
+    if (b[orderBy] > a[orderBy]) {
+      return 1;
+    }
+    return 0;
   }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
+
+  // sorting sentiment
+  if (orderBy === 'publicPerception') {
+    if ((b[orderBy].sentiment === 'N/A') || (b[orderBy].sentiment < a[orderBy].sentiment)) {
+      return -1;
+    }
+    if ((a[orderBy].sentiment === 'N/A') || (b[orderBy].sentiment > a[orderBy].sentiment)) {
+      return 1;
+    }
+    return 0;
   }
-  return 0;
+
+  // sorting financial outlook 
+  if (orderBy === 'financialOutlook') {
+    if ((b[orderBy].year_5 === 'N/A') || (b[orderBy].year_5 < a[orderBy].year_5)) {
+      return -1;
+    }
+    if ((a[orderBy].year_5 === 'N/A') || (b[orderBy].year_5 > a[orderBy].year_5)) {
+      return 1;
+    }
+    return 0;
+  }
 }
 
 function getComparator(order, orderBy) {
@@ -41,7 +67,7 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: 'district', numeric: false, disablePadding: true, label: 'District' },
+  { id: 'district', numeric: false, disablePadding: false, label: 'District' },
   { id: 'personalFit', numeric: true, disablePadding: false, label: 'Personal Fit' },
   { id: 'publicPerception', numeric: true, disablePadding: false, label: 'Public Perception' },
   { id: 'financialOutlook', numeric: true, disablePadding: false, label: 'Financial Outlook' },
@@ -56,9 +82,8 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-        </TableCell>
         {headCells.map((headCell) => (
+          headCell.id !== 'district' ?
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
@@ -69,7 +94,18 @@ function EnhancedTableHead(props) {
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
+              data-tip="" 
+              data-for={headCell.id}
             >
+              <ReactTooltip id={headCell.id} border={true} borderColor="gray">
+                {
+                  headCell.id === 'personalFit' ? 
+                    <span>Probability that, based on your profile, you possess the characteristics of a typical person in this district</span> : 
+                  headCell.id === 'publicPerception' ? 
+                    <span>Weighted average sentiment per district based on twitter tweets; percentage counts of tweets are depicted in a histogram</span>:
+                    <span>The 5 year forcasted return is shown; chart displays historical and projected house value</span>
+                }
+              </ReactTooltip>
               {headCell.label}
               {orderBy === headCell.id ? (
                 <span className={classes.visuallyHidden}>
@@ -77,6 +113,15 @@ function EnhancedTableHead(props) {
                 </span>
               ) : null}
             </TableSortLabel>
+          </TableCell> : 
+          <TableCell
+            data-tip="" 
+            data-for={headCell.id}
+          > 
+            {headCell.label}
+            <ReactTooltip id={headCell.id} border={true} borderColor="gray">
+              <span>Districts in New York City</span>
+            </ReactTooltip>
           </TableCell>
         ))}
       </TableRow>
@@ -118,8 +163,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SortableTable(props) {
 	const [rows, setRows] = useState(props.rows);
   const classes = useStyles();
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('district');
+  const [order, setOrder] = React.useState('desc');
+  const [orderBy, setOrderBy] = React.useState('personalFit');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const buckets = [
@@ -167,27 +212,33 @@ export default function SortableTable(props) {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const labelId = `enhanced-table-checkbox-${index}`;
-
                   return (
                     <TableRow
                       hover
                       tabIndex={-1}
                       key={row.district}
                     >
-                      <TableCell padding="checkbox">
-                      </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                      <TableCell component="th" scope="row">
                         {row.district}
                       </TableCell>
-                      <TableCell align="right">{row.personalFit}</TableCell>
-                      <TableCell align="right" data-tip="" data-for={row.district}>
-                        {row.publicPerception.sentiment === "N/A" ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
-                        <ReactTooltip id={row.district} backgroundColor="white" border={true} borderColor="gray">
-                          <SentimentToolTip histData={row.publicPerception.histogram} buckets={buckets} type={'bar'}/>
-                        </ReactTooltip>
+                      <TableCell align="right">
+                        {/* TODO: add tooltip */}
+                        {row.personalFit}
                       </TableCell>
-                      <TableCell align="right">{row.financialOutlook}</TableCell>
+                      <TableCell align="right" data-tip="" data-for={row.district + 'Sentiment'}>
+                        {row.publicPerception.sentiment === ("N/A" || undefined) ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}
+                        {row.publicPerception.sentiment !== "N/A" ? 
+                          <ReactTooltip id={row.district + 'Sentiment'} backgroundColor="white" border={true} borderColor="gray">
+                            <GenericToolTip data={row.publicPerception.histogram} yRange={buckets} type={'bar'}/>
+                          </ReactTooltip> : ""}
+                      </TableCell>
+                      <TableCell align="right" data-tip="" data-for={row.district + 'Finance'}>
+                        {row.financialOutlook.year_5 === ("N/A" || undefined) ? "N/A" : Number(row.financialOutlook.year_5.toFixed(3))}
+                        {row.financialOutlook.year_5 !== "N/A" ? 
+                          <ReactTooltip id={row.district + 'Finance'} backgroundColor="white" border={true} borderColor="gray">
+                            <FinanceToolTip historical={row.financialOutlook.current} projection={row.financialOutlook.projection} />
+                          </ReactTooltip> : ""}
+                      </TableCell>
                     </TableRow>
                   );
                 })}

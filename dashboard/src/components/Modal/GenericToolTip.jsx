@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { Chart } from 'react-charts'
 
 
-class SentimentToolTip extends Component {
+class GenericToolTip extends Component {
 	constructor(props) {
     super(props);
     this.props = props;
   }
 
   buildData() {
-    const { histData, buckets, type } = this.props;
+    const { data, yRange, type } = this.props;
     let dataForGraph = [];
-    for (let i = 0; i < buckets.length; i++) {
-      dataForGraph.push([buckets[i], histData[i]])
+    for (let i = 0; i < yRange.length; i++) {
+      dataForGraph.push([yRange[i], data[i]])
     }
     return {dataForGraph, type};
   }
@@ -41,4 +41,4 @@ class SentimentToolTip extends Component {
   }
 }
 
-export default SentimentToolTip;
+export default GenericToolTip;
