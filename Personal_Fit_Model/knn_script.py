@@ -9,7 +9,6 @@ import sys
 import pickle
 from knn import y_train, num_nta
 
-
 if(len(sys.argv) > 1):
     n1, n2, n3, n4, n5, n6 = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
 else:
@@ -27,7 +26,7 @@ weighted_neigh_arr = [0] * num_nta
 for i in indices[0]:
     neigh_arr.append(y_train[i])
     weighted_neigh_arr[y_train[i]] += 1
-print(weighted_neigh_arr)
+#print(weighted_neigh_arr)
 
-#res_arr = le.inverse_transform(result)
-#print("Result:", result, res_arr)
+#Write JSON here...
+    
