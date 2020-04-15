@@ -37,7 +37,7 @@ df_age = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_popn
 comm_name = df_age['comm'].tolist()
 
 for i in range(num_nta):
-    prob_dict.append({'district': comm_name[i], 'probability' : weighted_neigh_arr[i]/50})
+    prob_dict.append({'district': comm_name[i], 'probability' : weighted_neigh_arr[i]/1000})
 
 #Write JSON here...
 with open('probability.json', 'w') as f:
