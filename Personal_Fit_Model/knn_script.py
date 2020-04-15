@@ -6,6 +6,8 @@ Created on Wed Apr 15 16:36:59 2020
 """
 
 import sys
+import pandas as pd
+import json
 import pickle
 from knn import y_train, num_nta
 
@@ -29,5 +31,14 @@ for i in indices[0]:
     weighted_neigh_arr[y_train[i]] += 1
 #print(weighted_neigh_arr)
 
+#make dictionary for JSON
+prob_dict = []      #list of dictionaries
+df_age = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_popn.xlsx')
+comm_name = df_age['comm'].tolist()
+
+for i in range(num_nta):
+    prob_dict.append({'district': comm_name[i], 'probability' : weighted_neigh_arr[i]/50})
+
 #Write JSON here...
-    
+with open('probability.json', 'w') as f:
+    json.dump(prob_dict, f)
