@@ -15,6 +15,7 @@ Created on Fri Mar  6 00:21:46 2020
 #from numpy import random
 from random import choices
 import pandas as pd
+import pickle
 #path = "r'D:\GitHub\realtor-insights\Personal_Fit_Model"
 #Note: removed QN98 Airport, BX98 Rikers Island1, and cemeteries
 #Note: changed MN01 Marble Hill2-Inwood to remove number
@@ -55,6 +56,8 @@ knn_comm = []
 
 comm_dict = {}      #may not need
 
+num_nta = 0
+
 for comm in range(len(pop_arr)):
     #Note len(pop_arr) is 192
     #Remove Airport, Rikers Island
@@ -62,6 +65,7 @@ for comm in range(len(pop_arr)):
     #set-up of community code and scaling population
     comm_code = pop_arr[comm][0]
     if "cemetery" not in comm_code:
+        num_nta += 1
         k_factor_demo = pop_arr[comm][1]//1000     #create points to a factor of 1e3
     
         #logic for age
@@ -101,7 +105,7 @@ for comm in range(len(pop_arr)):
         knn_race.extend(sample_race)
         knn_ind.extend(sample_ind)
         knn_inc.extend(sample_inc)
-        knn_bed.extend(sample_bed)          #adding this makes it consistent (2%)
+        knn_bed.extend(sample_bed)
         knn_veh.extend(sample_veh)
         knn_comm.extend([comm_code]*k_factor_demo)
 
@@ -119,28 +123,31 @@ race_encoded = le.fit_transform(knn_race)
 ind_encoded = le.fit_transform(knn_ind)
 inc_encoded = le.fit_transform(knn_inc)
 bed_encoded = le.fit_transform(knn_bed)
-veh_encoded = le.fit_transform(knn_veh)
+veh_encoded = le.fit_transform(knn_veh)     #makes pred worse
 
 label = le.fit_transform(knn_comm)
-features = list(zip(age_encoded, race_encoded, ind_encoded))
+#features = list(zip(age_encoded, race_encoded))
+features = list(zip(age_encoded, race_encoded, ind_encoded, inc_encoded, bed_encoded, veh_encoded))
 
 #split train/test
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(features, label, test_size=0.3)
+#from sklearn.model_selection import train_test_split
+#X_train, X_test, y_train, y_test = train_test_split(features, label, test_size=0.1, shuffle = False, stratify = None)
+
+X_train, y_train = features, label
 
 #build knn model
-from sklearn.neighbors import KNeighborsClassifier
-knn = KNeighborsClassifier(n_neighbors=20)
-knn.fit(X_train, y_train)
-y_pred = knn.predict(X_test)
+#from sklearn.neighbors import KNeighborsClassifier
+#knn = KNeighborsClassifier(n_neighbors=100)
+#knn.fit(X_train, y_train)
+#y_pred = knn.predict(X_test)
 
-#check accuracy
+if __name__ == "__main__":
+    # this won't be run when imported
 
-#with age and race (before BX98 removal)
-    #~1.0 to 1.5% with k = 5
-    #1.0 to 2.0 with k =10
-    #1.4 to 2.2 with k = 15
-    #>1.8 with k = 20-30
+    #find n nearest neighbours
+    from sklearn.neighbors import NearestNeighbors
+    nbrs = NearestNeighbors(n_neighbors = 1000, algorithm = 'ball_tree')
+    nbrs.fit(X_train, y_train)
     
-from sklearn import metrics
-print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+    #try pickle
+    pickle.dump(nbrs, open('knn_model.sav', 'wb'))
