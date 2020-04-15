@@ -100,7 +100,7 @@ function EnhancedTableHead(props) {
               <ReactTooltip id={headCell.id} border={true} borderColor="gray">
                 {
                   headCell.id === 'personalFit' ? 
-                    <span>Probability that, based on your profile, you possess the characteristics of a typical person in this neighbourhood</span> : 
+                    <span>Probability that, based on your profile, you possess the characteristics of a typical person in this district</span> : 
                   headCell.id === 'publicPerception' ? 
                     <span>Weighted average sentiment per district based on twitter tweets; percentage counts of tweets are depicted in a histogram</span>:
                     <span>The 5 year forcasted return is shown; chart displays historical and projected house value</span>
@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SortableTable(props) {
 	const [rows, setRows] = useState(props.rows);
   const classes = useStyles();
-  const [order, setOrder] = React.useState('asc');
+  const [order, setOrder] = React.useState('desc');
   const [orderBy, setOrderBy] = React.useState('personalFit');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
