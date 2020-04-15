@@ -54,8 +54,6 @@ knn_bed = []
 knn_veh = []
 knn_comm = []
 
-comm_dict = {}      #may not need
-
 num_nta = 0
 
 for comm in range(len(pop_arr)):
@@ -92,13 +90,6 @@ for comm in range(len(pop_arr)):
         #logic for vehicles
         weights_veh = veh_arr[comm][2:]
         sample_veh = choices(veh, weights_veh, k=k_factor_demo) #same k as age 
-    
-        #start filling dictionary
-        #may not be necessary
-        comm_dict[comm_code] = {}
-        comm_dict[comm_code]['k'] = k_factor_demo
-        #comm_dict[comm_code]['age'] = sample_age
-        #comm_dict[comm_code]['race'] = sample_race
     
         #fill knn arrays
         knn_age.extend(sample_age)
@@ -151,3 +142,11 @@ if __name__ == "__main__":
     
     #try pickle
     pickle.dump(nbrs, open('knn_model.sav', 'wb'))
+
+#make dictionary for JSON
+median_dict = []      #list of dictionaries
+comm_name = df_age['comm'].tolist()
+
+
+for i in range(num_nta):
+    median_dict.append({'district': comm_name[i][5:]})
