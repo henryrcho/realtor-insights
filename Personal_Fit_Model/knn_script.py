@@ -5,13 +5,18 @@ Created on Wed Apr 15 16:36:59 2020
 @author: Shinjae Yoo
 """
 
+import sys
 import pickle
 from knn import y_train, num_nta
 
-from sklearn import preprocessing
-le = preprocessing.LabelEncoder()
 
-X_test = [(4, 3, 3, 6, 1, 3)]
+if(len(sys.argv) > 1):
+    n1, n2, n3, n4, n5, n6 = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
+else:
+    n1, n2, n3, n4, n5, n6 = 4, 3, 3, 6, 1, 3
+
+#X_test = [(4, 3, 3, 6, 1, 3)]
+X_test = [(n1, n2, n3, n4, n5, n6)]
 
 loaded_model = pickle.load(open('knn_model.sav', 'rb'))
 distances, indices = loaded_model.kneighbors(X_test)
