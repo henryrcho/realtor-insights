@@ -62,43 +62,42 @@ for comm in range(len(pop_arr)):
     
     #set-up of community code and scaling population
     comm_code = pop_arr[comm][0]
-    if "cemetery" not in comm_code:
-        num_nta += 1
-        k_factor_demo = pop_arr[comm][1]//1000     #create points to a factor of 1e3
+    num_nta += 1
+    k_factor_demo = pop_arr[comm][1]//1000     #create points to a factor of 1e3
+
+    #logic for age
+    weights_age = pop_arr[comm][2:]
+    sample_age = choices(age, weights_age, k=k_factor_demo)
+
+    #logic for race
+    weights_race = race_arr[comm][2:]
+    sample_race = choices(race, weights_race, k=k_factor_demo) #same k as age
+
+    #logic for employment industry
+    #k_factor_econ = ind_arr[comm][1]//1000
+    weights_ind = ind_arr[comm][2:]
+    sample_ind = choices(ind, weights_ind, k=k_factor_demo)
+
+    #logic for income
+    weights_inc = inc_arr[comm][2:]
+    sample_inc = choices(inc, weights_inc, k=k_factor_demo) #same k as age
+
+    #logic for bedroom
+    weights_bed = bed_arr[comm][2:]
+    sample_bed = choices(bed, weights_bed, k=k_factor_demo) #same k as age
     
-        #logic for age
-        weights_age = pop_arr[comm][2:]
-        sample_age = choices(age, weights_age, k=k_factor_demo)
-    
-        #logic for race
-        weights_race = race_arr[comm][2:]
-        sample_race = choices(race, weights_race, k=k_factor_demo) #same k as age
-    
-        #logic for employment industry
-        #k_factor_econ = ind_arr[comm][1]//1000
-        weights_ind = ind_arr[comm][2:]
-        sample_ind = choices(ind, weights_ind, k=k_factor_demo)
-    
-        #logic for income
-        weights_inc = inc_arr[comm][2:]
-        sample_inc = choices(inc, weights_inc, k=k_factor_demo) #same k as age
-    
-        #logic for bedroom
-        weights_bed = bed_arr[comm][2:]
-        sample_bed = choices(bed, weights_bed, k=k_factor_demo) #same k as age
-        
-        #logic for vehicles
-        weights_veh = veh_arr[comm][2:]
-        sample_veh = choices(veh, weights_veh, k=k_factor_demo) #same k as age 
-    
-        #fill knn arrays
-        knn_age.extend(sample_age)
-        knn_race.extend(sample_race)
-        knn_ind.extend(sample_ind)
-        knn_inc.extend(sample_inc)
-        knn_bed.extend(sample_bed)
-        knn_veh.extend(sample_veh)
-        knn_comm.extend([comm_code]*k_factor_demo)
+    #logic for vehicles
+    weights_veh = veh_arr[comm][2:]
+    sample_veh = choices(veh, weights_veh, k=k_factor_demo) #same k as age 
+
+    #fill knn arrays
+    knn_age.extend(sample_age)
+    knn_race.extend(sample_race)
+    knn_ind.extend(sample_ind)
+    knn_inc.extend(sample_inc)
+    knn_bed.extend(sample_bed)
+    knn_veh.extend(sample_veh)
+    knn_comm.extend([comm_code]*k_factor_demo)
 
 #test with just age and race
 
@@ -146,6 +145,7 @@ if __name__ == "__main__":
 #make dictionary for JSON
 median_dict = []      #list of dictionaries
 comm_name = df_age['comm'].tolist()
+#age_sum = 
 
 
 for i in range(num_nta):
