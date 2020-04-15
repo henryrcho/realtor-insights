@@ -10,7 +10,8 @@ import pickle
 from knn import y_train, num_nta
 
 if(len(sys.argv) > 1):
-    n1, n2, n3, n4, n5, n6 = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
+    n1, n2, n3, n4, n5, n6 = int(sys.argv[1]), int(sys.argv[2]), \
+    int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
 else:
     n1, n2, n3, n4, n5, n6 = 4, 3, 3, 6, 1, 3
 
