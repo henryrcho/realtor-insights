@@ -146,7 +146,7 @@ if __name__ == "__main__":
 #make dictionary for JSON
 median_dict = []      #list of dictionaries
 comm_name = df_age['comm'].tolist()
-for i in range(20):
+for i in range(num_nta):
     
     #find median age
     age_total = pop_arr[i][1]
