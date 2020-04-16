@@ -21,12 +21,12 @@ import pickle
 #Note: removed QN98 Airport, BX98 Rikers Island1, and cemeteries
 #Note: changed MN01 Marble Hill2-Inwood to remove number
 #todo: perhaps change name of nyc_popn to nyc_age
-df_age = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_popn.xlsx')
-df_race = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_race.xlsx')
-df_ind = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_empind.xlsx')
-df_inc = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_income.xlsx')
-df_bed = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_bedroom.xlsx')
-df_veh = pd.read_excel (r'D:\GitHub\realtor-insights\Personal_Fit_Model\nyc_vehicle.xlsx')
+df_age = pd.read_excel (r'./nyc_popn.xlsx')
+df_race = pd.read_excel (r'./nyc_race.xlsx')
+df_ind = pd.read_excel (r'./nyc_empind.xlsx')
+df_inc = pd.read_excel (r'./nyc_income.xlsx')
+df_bed = pd.read_excel (r'./nyc_bedroom.xlsx')
+df_veh = pd.read_excel (r'./nyc_vehicle.xlsx')
 
 age = list(df_age)[2:]              #column header
 pop_arr = df_age.values.tolist()    #list of all elements in row in a list
