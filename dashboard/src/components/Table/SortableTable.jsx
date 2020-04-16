@@ -179,7 +179,7 @@ export default function SortableTable(props) {
   const [order, setOrder] = React.useState('desc');
   const [orderBy, setOrderBy] = React.useState('personalFit');
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const buckets = [
     '-1 to -0.8', '-0.8 to -0.6', '-0.6 to -0.4', '-0.4 to -0.2', '-0.2 to 0',
     '0 to 0.2', '0.2 to 0.4', '0.4 to 0.6', '0.6 to 0.8', '0.8 to 1'
@@ -238,7 +238,6 @@ export default function SortableTable(props) {
                         {row.district}
                       </TableCell>
                       <TableCell align="right" data-tip="" data-for={row.district + 'Personal'} >
-                        {/* TODO: add tooltip */}
                         {row.personalFit.probability}
                         <ReactTooltip id={row.district + 'Personal'} backgroundColor="white" border={true} borderColor="gray">
                           <FitToolTip data={row.personalFit} yRange={attributes} type={'bar'}/>

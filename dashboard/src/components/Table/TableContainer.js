@@ -27,7 +27,7 @@ class TableContainer extends Component {
 		var rows = [];
 		for(var i = 0; i < model1.length; i++) {
 			if((model1[i].district !== model2[i].district) || (model1[i].district !== model3[i].district)) {
-				return console.log("Error! Out-of-order");
+				return console.log("Error! Out-of-order", model1[i].district, model2[i].district, model3[i].district, i);
 			}
 			rows[i] = { 
 				district: model1[i].district,
@@ -104,9 +104,11 @@ class TableContainer extends Component {
 						{this.state.isLoading ? <LoadingSpinner /> :
 							<div>
 								<h2>Here are your results!</h2>
-								<SortableTable 
-									rows={this.state.rows}
-								/>
+								<div className="pt-5">
+									<SortableTable 
+										rows={this.state.rows}
+									/>
+								</div>
 							</div>
 						}
 					</div>
