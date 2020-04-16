@@ -20,7 +20,7 @@ else:
 #X_test = [(4, 3, 3, 6, 1, 3)]
 X_test = [(n1, n2, n3, n4, n5, n6)]
 
-loaded_model = pickle.load(open('knn_model.sav', 'rb'))
+loaded_model = pickle.load(open('./data/knn_model.sav', 'rb'))
 distances, indices = loaded_model.kneighbors(X_test)
 
 #calculating weights of n closest ntas
@@ -37,8 +37,16 @@ prob_dict = []      #list of dictionaries
 df_age = pd.read_excel (r'./data/nyc_popn.xlsx')
 comm_name = df_age['comm'].tolist()
 
+with open('./data/median.json', 'r') as f:
+    median_dict = json.load(f)
+
 for i in range(num_nta):
-    prob_dict.append({'district': comm_name[i][5:], 'probability' : weighted_neigh_arr[i]/1000})
+    item = {'district': comm_name[i][5:], 'probability' : weighted_neigh_arr[i]/1000}
+    for key in median_dict[i]:
+        if key != 'district':
+            item[key] = median_dict[i][key]
+    prob_dict.append(item)
+
 
 #Write JSON here...
 #with open('probability.json', 'w') as f:
