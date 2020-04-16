@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import ReactTooltip from "react-tooltip";
 import GenericToolTip from '../Modal/GenericToolTip';
 import FinanceToolTip from '../Modal/FinanceToolTip';
+import FitToolTip from '../Modal/FitToolTip';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -22,6 +23,17 @@ function descendingComparator(a, b, orderBy) {
       return -1;
     }
     if (b[orderBy] > a[orderBy]) {
+      return 1;
+    }
+    return 0;
+  }
+
+  // sorting sentiment
+  if (orderBy === 'personalFit') {
+    if (b[orderBy].probability < a[orderBy].probability) {
+      return -1;
+    }
+    if (b[orderBy].probability > a[orderBy].probability) {
       return 1;
     }
     return 0;
@@ -172,7 +184,10 @@ export default function SortableTable(props) {
     '-1 to -0.8', '-0.8 to -0.6', '-0.6 to -0.4', '-0.4 to -0.2', '-0.2 to 0',
     '0 to 0.2', '0.2 to 0.4', '0.4 to 0.6', '0.6 to 0.8', '0.8 to 1'
   ];
-	
+  const attributes = [
+    'median_age', 'median_income', 'median_bed', 'median_veh'
+  ];
+
 	useEffect(() => setRows(props.rows), [props.rows]);
 
   const handleRequestSort = (event, property) => {
@@ -222,9 +237,12 @@ export default function SortableTable(props) {
                       <TableCell component="th" scope="row">
                         {row.district}
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" data-tip="" data-for={row.district + 'Personal'} >
                         {/* TODO: add tooltip */}
-                        {row.personalFit}
+                        {row.personalFit.probability}
+                        <ReactTooltip id={row.district + 'Personal'} backgroundColor="white" border={true} borderColor="gray">
+                          <FitToolTip data={row.personalFit} yRange={attributes} type={'bar'}/>
+                        </ReactTooltip>
                       </TableCell>
                       <TableCell align="right" data-tip="" data-for={row.district + 'Sentiment'}>
                         {row.publicPerception.sentiment === ("N/A" || undefined) ? "N/A" : Number(row.publicPerception.sentiment.toFixed(3))}

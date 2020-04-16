@@ -31,8 +31,15 @@ class TableContainer extends Component {
 			}
 			rows[i] = { 
 				district: model1[i].district,
-				// TODO: edit this schema
-				personalFit: model1[i].sentiment,
+				personalFit: {
+					probability: model1[i].probability, 
+					median_age: model1[i].median_age,  
+					majority_race: model1[i].majority_race, 
+					majority_empind: model1[i].majority_empind,
+					median_income: model1[i].median_income,
+					median_bed: model1[i].median_bed,
+					median_veh: model1[i].median_veh
+				},
 				publicPerception: { 
 					sentiment: model2[i].sentiment,
 					histogram: model2[i].histogram

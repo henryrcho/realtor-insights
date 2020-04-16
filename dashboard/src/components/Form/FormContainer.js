@@ -51,8 +51,13 @@ class FormContainer extends Component {
   }
 
   handleFormSubmit(e) {
-    e.preventDefault();
-    this.setState({ redirect: "/results" });
+    const user = this.state.userData;
+    if(user.age === '' || user.bedrooms === '' || user.income === '' || user.occupation === '' || user.race === '' || user.vehicles === '') {
+      return;
+    } else {
+      e.preventDefault();
+      this.setState({ redirect: "/results" });
+    }
   }   
 
   handleClearForm(e) {
