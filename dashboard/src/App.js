@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar'
 import Home from './components/Home';
 import About from './components/About';
-import ToS from './components/ToS';
-import Legal from './components/Legal'
 import FormContainer from './components/Form/FormContainer';
 import TableContainer from './components/Table/TableContainer';
 
@@ -18,8 +16,6 @@ function App() {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/about' component={About} />
-              <Route path='/tos' component={ToS} />
-              <Route path='/legal' component={Legal} />
               <Route path='/search' component={FormContainer} />
               <Route path='/results' component={TableContainer} />
             </Switch>
