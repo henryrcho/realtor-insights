@@ -48,10 +48,6 @@
     "sentiment": 0.1
   },
   {
-    "district": "park-cemetery-etc-Brooklyn",
-    "sentiment": 0.1
-  },
-  {
     "district": "Cypress Hills-City Line",
     "sentiment": 0.1
   },
@@ -344,10 +340,6 @@
     "sentiment": 0.1
   },
   {
-    "district": "park-cemetery-etc-Bronx",
-    "sentiment": 0.1
-  },
-  {
     "district": "West Village",
     "sentiment": 0.1
   },
@@ -460,10 +452,6 @@
     "sentiment": 0.1
   },
   {
-    "district": "park-cemetery-etc-Manhattan",
-    "sentiment": 0.1
-  },
-  {
     "district": "Queensbridge-Ravenswood-Long Island City",
     "sentiment": 0.1
   },
@@ -477,10 +465,6 @@
   },
   {
     "district": "Steinway",
-    "sentiment": 0.1
-  },
-  {
-    "district": "park-cemetery-etc-Queens",
     "sentiment": 0.1
   },
   {

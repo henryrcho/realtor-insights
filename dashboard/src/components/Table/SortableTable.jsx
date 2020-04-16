@@ -115,6 +115,7 @@ function EnhancedTableHead(props) {
             </TableSortLabel>
           </TableCell> : 
           <TableCell
+            key={headCell.id}
             data-tip="" 
             data-for={headCell.id}
           > 
@@ -211,7 +212,7 @@ export default function SortableTable(props) {
             <TableBody>
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
+                .map((row) => {
                   return (
                     <TableRow
                       hover

@@ -18,10 +18,10 @@ class FormContainer extends Component {
         vehicles: ''
       },
 
-      ageOptions: ['18-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
+      ageOptions: ['20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
       raceOptions: ['Latino', 'Caucasian', 'African American', 'Asian', 'Other'], 
       occupationOptions: [
-        'Construction', 'Manufacturing', 'Wholesale trade', 'Retail trade', 'Transportation, warehousing, or utilities',
+        'Agriculture, forestry, fishing, hunting, or mining', 'Construction', 'Manufacturing', 'Wholesale trade', 'Retail trade', 'Transportation, warehousing, or utilities',
         'Information', 'Finance, insurance, real estate, or rental & leasing', 'Professional, scientific, management, administrative, or waste management services',
         'Educational services, health care, or social assistance', 'Arts, entertainment, recreation, accommodation, or food services',
         'Other services, except public administration', 'Public administration'   
