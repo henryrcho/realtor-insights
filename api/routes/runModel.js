@@ -38,6 +38,11 @@ const vehicleOptions = {'0 vehicles': 0, '1 vehicle': 1, '2 vehicles': 2, '3 or 
 
 // GET method route for running the model and returning results
 router.get('/', function(req, res, next) {
+    if (!((req.query.age in ageDict) && (req.query.race in raceDict) && (req.query.occupation in occupationDict) &&
+        (req.query.income in incomeDict) && (req.query.bedrooms in bedroomDict) && (req.query.vehicles in vehicleOptions))) {
+        return res.status(500).send('Invalid query parameters.')
+    }
+
     runScript(
         ageDict[req.query.age], 
         raceDict[req.query.race],
@@ -61,7 +66,7 @@ router.get('/', function(req, res, next) {
  */
 function runScript(age, race, occupation, income, bedrooms, vehicles, res) {
     var jsonData = [];
-    const process = spawn('python', ['./knn_script.py', age, race, occupation, income, bedrooms, vehicles]);
+    const process = spawn('python3', ['./knn_script.py', age, race, occupation, income, bedrooms, vehicles]);
     
     process.stdout.on('data', function(data) {
         return jsonData.push(data);
