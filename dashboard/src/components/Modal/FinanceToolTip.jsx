@@ -11,23 +11,34 @@ class FinanceToolTip extends Component {
   buildData() {
     const { projection, historical } = this.props;
     const historicalData = historical.map(x => x.value);
+    const historicalDates = historical.map(x => {
+      let dateParts = x.date.split('-')
+      return new Date(parseInt(dateParts[0], 10),
+        parseInt(dateParts[1], 10) - 1,
+        parseInt(dateParts[2].split(' ')[0], 10))
+    });
     let historicalDataForGraph = []; 
     for (let i = 0; i < historicalData.length; i++) {
-      historicalDataForGraph.push([i, historicalData[i]]);
+      historicalDataForGraph.push([historicalDates[i], historicalData[i]]);
     }
 
     const historyLength = historicalDataForGraph.length;
     const projectedData = projection.map(x => x.value);
     const projectedUpperCI = projection.map(x => x.upper_ci);
     const projectedLowerCI = projection.map(x => x.lower_ci);
+    const projectedDates = projection.map(x => {
+      let dateParts = x.date.split('-');
+      return new Date(parseInt(dateParts[0], 10),
+        parseInt(dateParts[1], 10) - 1,
+        parseInt(dateParts[2].split(' ')[0], 10))});
 
     let projectedDataForGraph = [];
     let projectedUpperCIForGraph = [];
     let projectedLowerCIForGraph = [];
     for (let i = 0; i < projectedData.length; i++) {
-      projectedDataForGraph.push([historyLength + i, projectedData[i]])
-      projectedUpperCIForGraph.push([historyLength + i, projectedUpperCI[i]])
-      projectedLowerCIForGraph.push([historyLength + i, projectedLowerCI[i]])
+      projectedDataForGraph.push([projectedDates[i],  projectedData[i]])
+      projectedUpperCIForGraph.push([projectedDates[i], projectedUpperCI[i]])
+      projectedLowerCIForGraph.push([projectedDates[i], projectedLowerCI[i]])
     }
 
     return { 
@@ -49,7 +60,7 @@ class FinanceToolTip extends Component {
     ];
 
     const axes = [
-      { primary: true, type: 'linear', position: 'bottom' },
+      { primary: true, type: 'time', position: 'bottom' },
       { position: 'left', type: 'linear' }
     ];
 
