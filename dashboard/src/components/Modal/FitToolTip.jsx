@@ -97,7 +97,7 @@ class GenericToolTip extends Component {
                 float: 'left'
                 }}
             >
-                <Chart title="Personal Fit tooltip graph" series={series} data={[{data: [index]}]} axes={axes} />
+                <Chart title="Personal Fit tooltip graph" series={series} data={[{data: [['', 0], index, ['', 0]]}]} axes={axes} />
             </div>
         ))
     );
