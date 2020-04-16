@@ -145,6 +145,39 @@ if __name__ == "__main__":
 
 #make dictionary for JSON
 median_dict = []      #list of dictionaries
+
+#list of other dictionaries
+ageDict = ['20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+']
+raceDict = ['Latino', 'Caucasian', 'African American', 'Asian', 'Other']
+occupationDict = ['Agriculture, forestry, fishing, hunting, or mining', 
+    'Construction',
+    'Manufacturing', 
+    'Wholesale trade', 
+    'Retail trade', 
+    'Transportation, warehousing, or utilities',
+    'Information', 
+    'Finance, insurance, real estate, or rental & leasing', 
+    'Professional, scientific, management, administrative, or waste management services',
+    'Educational services, health care, or social assistance', 
+    'Arts, entertainment, recreation, accommodation, or food services',
+    'Other services, except public administration', 
+    'Public administration'
+]
+incomeDict = [
+    'Less than $10,000', 
+    '$10,000 to $14,999', 
+    '$15,000 to $24,999', 
+    '$25,000 to $34,999', 
+    '$35,000 to $49,999', 
+    '$50,000 to $74,999', 
+    '$75,000 to $99,999', 
+    '$100,000 to $149,999', 
+    '$150,000 to $199,999', 
+    '$200,000 or more'
+]
+bedroomDict = ['0 bedrooms', '1 bedroom', '2 bedrooms', '3 bedrooms', '4 bedrooms', '5 or more bedrooms']
+vehicleOptions = ['0 vehicles', '1 vehicle', '2 vehicles', '3 or more vehicles']
+
 comm_name = df_age['comm'].tolist()
 for i in range(num_nta):
     
@@ -155,17 +188,17 @@ for i in range(num_nta):
     while(age_sum < age_total/2):
         age_ctr += 1
         age_sum += pop_arr[i][age_ctr+1]
-    median_age = list(df_age)[2:][age_ctr-1]
+    median_age = ageDict[age_ctr-1]
     
     #find majority race
     race_val_max = max(race_arr[i][2:])
     race_ind_max = race_arr[i][2:].index(race_val_max)
-    maj_race = list(df_race)[2:][race_ind_max]
+    maj_race = raceDict[race_ind_max]
     
     #find majority employment industry
     ind_val_max = max(ind_arr[i][2:])
     ind_ind_max = ind_arr[i][2:].index(ind_val_max)
-    maj_ind = list(df_ind)[2:][ind_ind_max]
+    maj_ind = occupationDict[ind_ind_max]
     
     #find median income
     inc_total = inc_arr[i][1]
@@ -174,7 +207,7 @@ for i in range(num_nta):
     while(inc_sum < inc_total/2):
         inc_ctr += 1
         inc_sum += inc_arr[i][inc_ctr+1]
-    median_inc = list(df_inc)[2:][inc_ctr-1]
+    median_inc = incomeDict[inc_ctr-1]
     
     #find median number of bedrooms
     bed_total = bed_arr[i][1]
@@ -183,7 +216,7 @@ for i in range(num_nta):
     while(bed_sum < bed_total/2):
         bed_ctr += 1
         bed_sum += bed_arr[i][bed_ctr+1]
-    median_bed = list(df_bed)[2:][bed_ctr-1]
+    median_bed = bedroomDict[bed_ctr-1]
     
     #find median number of vehicles
     veh_total = veh_arr[i][1]
@@ -192,7 +225,7 @@ for i in range(num_nta):
     while(veh_sum < veh_total/2):
         veh_ctr += 1
         veh_sum += veh_arr[i][veh_ctr+1]
-    median_veh = list(df_veh)[2:][veh_ctr-1]
+    median_veh = vehicleOptions[veh_ctr-1]
     
     median_dict.append({'district': comm_name[i][5:], \
                         'median_age': median_age, \
