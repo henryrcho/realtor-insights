@@ -20,7 +20,7 @@ else:
 #X_test = [(4, 3, 3, 6, 1, 3)]
 X_test = [(n1, n2, n3, n4, n5, n6)]
 
-loaded_model = pickle.load(open('knn_model.sav', 'rb'))
+loaded_model = pickle.load(open('./data/knn_model.sav', 'rb'))
 distances, indices = loaded_model.kneighbors(X_test)
 
 #calculating weights of n closest ntas
@@ -34,7 +34,7 @@ for i in indices[0]:
 #make dictionary for JSON
 prob_dict = []      #list of dictionaries
 #Note: manually removed cemeteries and Rikers Island and Airport
-df_age = pd.read_excel (r'./nyc_popn.xlsx')
+df_age = pd.read_excel (r'./data/nyc_popn.xlsx')
 comm_name = df_age['comm'].tolist()
 
 for i in range(num_nta):

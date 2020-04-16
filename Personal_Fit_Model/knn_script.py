@@ -34,7 +34,7 @@ for i in indices[0]:
 #make dictionary for JSON
 prob_dict = []      #list of dictionaries
 #Note: manually removed cemeteries and Rikers Island and Airport
-df_age = pd.read_excel (r'./nyc_popn.xlsx')
+df_age = pd.read_excel (r'./data/nyc_popn.xlsx')
 comm_name = df_age['comm'].tolist()
 
 for i in range(num_nta):

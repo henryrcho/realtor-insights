@@ -21,12 +21,12 @@ import pickle
 #Note: removed QN98 Airport, BX98 Rikers Island1, and cemeteries
 #Note: changed MN01 Marble Hill2-Inwood to remove number
 #todo: perhaps change name of nyc_popn to nyc_age
-df_age = pd.read_excel (r'./nyc_popn.xlsx')
-df_race = pd.read_excel (r'./nyc_race.xlsx')
-df_ind = pd.read_excel (r'./nyc_empind.xlsx')
-df_inc = pd.read_excel (r'./nyc_income.xlsx')
-df_bed = pd.read_excel (r'./nyc_bedroom.xlsx')
-df_veh = pd.read_excel (r'./nyc_vehicle.xlsx')
+df_age = pd.read_excel (r'./data/nyc_popn.xlsx')
+df_race = pd.read_excel (r'./data/nyc_race.xlsx')
+df_ind = pd.read_excel (r'./data/nyc_empind.xlsx')
+df_inc = pd.read_excel (r'./data/nyc_income.xlsx')
+df_bed = pd.read_excel (r'./data/nyc_bedroom.xlsx')
+df_veh = pd.read_excel (r'./data/nyc_vehicle.xlsx')
 
 age = list(df_age)[2:]              #column header
 pop_arr = df_age.values.tolist()    #list of all elements in row in a list
@@ -141,12 +141,12 @@ if __name__ == "__main__":
     nbrs.fit(X_train, y_train)
     
     #try pickle
-    pickle.dump(nbrs, open('knn_model.sav', 'wb'))
+    pickle.dump(nbrs, open('./data/knn_model.sav', 'wb'))
 
 #make dictionary for JSON
 median_dict = []      #list of dictionaries
 comm_name = df_age['comm'].tolist()
-for i in range(20):
+for i in range(num_nta):
     
     #find median age
     age_total = pop_arr[i][1]
