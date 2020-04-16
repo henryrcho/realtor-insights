@@ -13,6 +13,7 @@ Created on Fri Mar  6 00:21:46 2020
 #number of vehicles
 
 #from numpy import random
+import json
 from random import choices
 import pandas as pd
 import pickle
@@ -145,8 +146,62 @@ if __name__ == "__main__":
 #make dictionary for JSON
 median_dict = []      #list of dictionaries
 comm_name = df_age['comm'].tolist()
-#age_sum = 
+for i in range(20):
+    
+    #find median age
+    age_total = pop_arr[i][1]
+    age_ctr = 0
+    age_sum = 0
+    while(age_sum < age_total/2):
+        age_ctr += 1
+        age_sum += pop_arr[i][age_ctr+1]
+    median_age = list(df_age)[2:][age_ctr-1]
+    
+    #find majority race
+    race_val_max = max(race_arr[i][2:])
+    race_ind_max = race_arr[i][2:].index(race_val_max)
+    maj_race = list(df_race)[2:][race_ind_max]
+    
+    #find majority employment industry
+    ind_val_max = max(ind_arr[i][2:])
+    ind_ind_max = ind_arr[i][2:].index(ind_val_max)
+    maj_ind = list(df_ind)[2:][ind_ind_max]
+    
+    #find median income
+    inc_total = inc_arr[i][1]
+    inc_ctr = 0
+    inc_sum = 0
+    while(inc_sum < inc_total/2):
+        inc_ctr += 1
+        inc_sum += inc_arr[i][inc_ctr+1]
+    median_inc = list(df_inc)[2:][inc_ctr-1]
+    
+    #find median number of bedrooms
+    bed_total = bed_arr[i][1]
+    bed_ctr = 0
+    bed_sum = 0
+    while(bed_sum < bed_total/2):
+        bed_ctr += 1
+        bed_sum += bed_arr[i][bed_ctr+1]
+    median_bed = list(df_bed)[2:][bed_ctr-1]
+    
+    #find median number of vehicles
+    veh_total = veh_arr[i][1]
+    veh_ctr = 0
+    veh_sum = 0
+    while(veh_sum < veh_total/2):
+        veh_ctr += 1
+        veh_sum += veh_arr[i][veh_ctr+1]
+    median_veh = list(df_veh)[2:][veh_ctr-1]
+    
+    median_dict.append({'district': comm_name[i][5:], \
+                        'median_age': median_age, \
+                        'majority_race': maj_race, \
+                        'majority_empind': maj_ind, \
+                        'median_income': median_inc, \
+                        'median_bed': median_bed, \
+                        'median_veh': median_veh})
 
-
-for i in range(num_nta):
-    median_dict.append({'district': comm_name[i][5:]})
+#Write JSON here...
+with open('median.json', 'w') as f:
+    json.dump(median_dict, f)
