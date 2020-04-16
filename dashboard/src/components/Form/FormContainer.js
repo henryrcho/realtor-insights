@@ -19,7 +19,7 @@ class FormContainer extends Component {
       },
 
       ageOptions: ['20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
-      raceOptions: ['Latino', 'Caucasian', 'African American', 'Asian', 'Other'], 
+      raceOptions: ['Hispanic', 'Caucasian', 'African American', 'Asian', 'Other'], 
       occupationOptions: [
         'Agriculture, forestry, fishing, hunting, or mining', 'Construction', 'Manufacturing', 'Wholesale trade', 'Retail trade', 'Transportation, warehousing, or utilities',
         'Information', 'Finance, insurance, real estate, or rental & leasing', 'Professional, scientific, management, administrative, or waste management services',
