@@ -4,7 +4,7 @@ const { spawn } = require('child_process');
 
 
 // Dictionaries to translate input for model
-const ageDict = {'20-24': 0, '25-34': 1, '35-44': 2, '45-54': 3, '55-59': 4, '60-64': 5, '65-74': 6, '75-84': 7, '85+': 8};
+const ageDict = {'20-24': 0, '25-34': 1, '35-44': 2, '45-54': 3, '55-59': 4, '60-64': 5, '65-74': 6, '75-84': 7, '85 or older': 8};
 const raceDict = {'Hispanic': 0, 'Caucasian': 1, 'African American': 2, 'Asian': 3, 'Other': 4};
 const occupationDict = {
     'Agriculture, forestry, fishing, hunting, or mining': 0, 
