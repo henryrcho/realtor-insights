@@ -14,7 +14,7 @@ const occupationDict = {
     'Retail trade':4, 
     'Transportation, warehousing, or utilities': 5,
     'Information': 6, 
-    'Finance, insurance, real estate, or rental & leasing': 7, 
+    'Finance, insurance, real estate, or rental and leasing': 7, 
     'Professional, scientific, management, administrative, or waste management services': 8,
     'Educational services, health care, or social assistance': 9, 
     'Arts, entertainment, recreation, accommodation, or food services':10,

@@ -22,7 +22,7 @@ class FormContainer extends Component {
       raceOptions: ['Hispanic', 'Caucasian', 'African American', 'Asian', 'Other'], 
       occupationOptions: [
         'Agriculture, forestry, fishing, hunting, or mining', 'Construction', 'Manufacturing', 'Wholesale trade', 'Retail trade', 'Transportation, warehousing, or utilities',
-        'Information', 'Finance, insurance, real estate, or rental & leasing', 'Professional, scientific, management, administrative, or waste management services',
+        'Information', 'Finance, insurance, real estate, or rental and leasing', 'Professional, scientific, management, administrative, or waste management services',
         'Educational services, health care, or social assistance', 'Arts, entertainment, recreation, accommodation, or food services',
         'Other services, except public administration', 'Public administration'   
       ],
