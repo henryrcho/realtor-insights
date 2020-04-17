@@ -22,7 +22,6 @@ class FinanceToolTip extends Component {
       historicalDataForGraph.push([historicalDates[i], historicalData[i]]);
     }
 
-    const historyLength = historicalDataForGraph.length;
     const projectedData = projection.map(x => x.value);
     const projectedUpperCI = projection.map(x => x.upper_ci);
     const projectedLowerCI = projection.map(x => x.lower_ci);

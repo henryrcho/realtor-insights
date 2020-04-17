@@ -28,6 +28,12 @@ class About extends Component {
                         sentiment about each district based on news and social media; and Financial Opportunity, which provides a forecasted valuation of the district 
                         based on historical data.
                     </p>
+                    <h4 className="text-left">Watch our Demo!</h4>
+                    <p className="lead my-3 text-left">
+                        In this video demo, we walk through the usage of the tool, and detail some of the technical foundations of the models underlying our recommendations.
+                    </p>
+                    <iframe title="demo" width="80%" height="35%" src="https://www.youtube.com/embed/9iy5lmoDt2E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
                     <h4 className="text-left">Team</h4>
                     <p className="lead my-3 text-left mb-5">
                         Realtor Insights was created by a team of four University of Toronto Undergraduate Engineering Students in Engineering 
