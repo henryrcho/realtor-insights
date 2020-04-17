@@ -13,9 +13,9 @@ class About extends Component {
             <div className="row">
                 <div className="col-md-2"></div>
                 <div className="col-md-8 px-0">
-                    <h4 className="text-left">Realstor Insights</h4>
+                    <h4 className="text-left">Realtor Insights</h4>
                     <p className="lead my-3 text-left">
-                        Realtor insights provides tools to help indivuduals make more informed purchasing decisions when looking for their next home.
+                        Realtor insights provides tools to help individuals make more informed purchasing decisions when looking for their next home.
                         Created as part of ESC472 - Electrical and Computer Capstone Design course at the University of Toronto, this application provides 
                         an opportunity to integrate and apply the technical knowledge gained during the team's undergraduate education to the solution 
                         of a given real-world engineering design challenge. 
