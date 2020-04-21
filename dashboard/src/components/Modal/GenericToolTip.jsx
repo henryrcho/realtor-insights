@@ -20,13 +20,14 @@ class GenericToolTip extends Component {
   render() {
     const {dataForGraph, type} = this.buildData();
     const data = [{ data: dataForGraph }];
-    const series = ({ type: type });
+    const series = ({ name: 'hello', type: type });
     const axes = [
       { primary: true, type: 'ordinal', position: 'bottom' },
       { position: 'left', type: 'linear' }
     ];
 
     return (
+      <>
       <div
         style={{
           backgroundColor: 'white',
@@ -37,6 +38,7 @@ class GenericToolTip extends Component {
       >
         <Chart title="Generic tooltip graph" series={series} data={data} axes={axes} />
       </div>
+      </>
     );
   }
 }
