@@ -33,7 +33,7 @@ class FormContainer extends Component {
       bedroomOptions: ['0 bedrooms', '1 bedroom', '2 bedrooms', '3 bedrooms', '4 bedrooms', '5 or more bedrooms'],
       vehicleOptions: ['0 vehicles', '1 vehicle', '2 vehicles', '3 or more vehicles'],
       
-
+      invalidSubmit: false,
       redirect: null,
     }
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -53,6 +53,8 @@ class FormContainer extends Component {
   handleFormSubmit(e) {
     const user = this.state.userData;
     if(user.age === '' || user.bedrooms === '' || user.income === '' || user.occupation === '' || user.race === '' || user.vehicles === '') {
+      e.preventDefault();
+      this.setState({ invalidSubmit: true });
       return;
     } else {
       e.preventDefault();
@@ -156,6 +158,9 @@ class FormContainer extends Component {
                   /> {/* Vehicle Selection */}
                 </div>
               </div>
+
+              {this.state.invalidSubmit ? (
+                <><br />Please fill in all the required input fields!<br /></>) : null}
 
               <Button 
                 action = {this.handleFormSubmit}
