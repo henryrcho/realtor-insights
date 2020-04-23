@@ -43,6 +43,7 @@ class About extends Component {
                     </p>
                 </div>
             </div>
+            <div className="col pt-5"></div>
         </div>
     );
   }
